@@ -1,15 +1,98 @@
+	/* --- GLOBAL TYPOGRAPHY IMPROVEMENT --- */
+	body {
+		line-height: 1.7;
+	}
+
+	p {
+		margin-bottom: 1.2rem;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.3;
+		margin-bottom: 1rem;
+	}
+
+	/* --- CONTAINER SYSTEM --- */
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	/* --- SECTION SPACING --- */
+	section {
+		padding: 100px 20px;
+	}
+
+	/* --- HERO SECTION SPACING --- */
+	.hero h1 {
+		margin-bottom: 1.5rem;
+	}
+	.hero p {
+		margin-bottom: 2rem;
+	}
+
+	/* --- CARD CONTENT SPACING --- */
+	.card-content {
+		padding: 24px;
+	}
+	.card-content h3 {
+		margin-bottom: 0.8rem;
+	}
+	.card-content p {
+		margin-bottom: 1rem;
+	}
+
+	/* --- PROFILE PAGE TEXT SPACING --- */
+	.profile-bio,
+	.profile-dream {
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+	}
+	/* Modern glowing footer inspired by ReviewSync */
+	.modern-footer {
+		width: 100%;
+		background: #18191a;
+		backdrop-filter: blur(12px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 4.5rem 0 4.5rem 0;
+		margin-top: 8rem;
+		position: static;
+		left: unset;
+		right: unset;
+		bottom: unset;
+		z-index: unset;
+		border-radius: 32px 32px 0 0;
+		box-shadow: 0 -8px 32px 0 rgba(20,15,23,0.18), 0 -2px 8px 0 rgba(115,12,30,0.12);
+	}
+	.footer-glow-text {
+		font-family: 'Inter', Arial, sans-serif;
+		font-size: 9rem;
+		font-weight: 900;
+		letter-spacing: 0.12em;
+		color: transparent;
+		text-align: center;
+		text-transform: uppercase;
+		-webkit-text-stroke: 2px #e34a5c;
+		text-shadow: 0 0 12px #e34a5c88;
+		background: none;
+	}
 	.search-bar-center {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
 		margin: 0 auto 2.5rem auto;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 /* Center section headings for mentors and folks */
 .mentors-heading, .folks-heading, .mentors-title, .folks-title {
 	color: #fff;
 	text-align: center;
-	text-shadow: 0 0 16px #fff, 0 0 32px #fff8;
 	font-size: 2.5rem;
 	font-weight: 800;
 	margin-bottom: 1.5rem;
@@ -43,6 +126,13 @@
 	width: auto;
 	max-width: 120px;
 }
+.navbar-logo {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	flex-shrink: 0;
+}
 .logo-intro {
 	width: 180px;
 	max-width: 80vw;
@@ -58,7 +148,7 @@
 	top: 0; left: 0; right: 0; bottom: 0;
 	width: 100vw;
 	height: 100vh;
-	background: var(--bg-gradient);
+	background: #000;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -216,6 +306,11 @@ ul, ol {
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
 }
 .nav-link {
 	font-size: 1.08rem;
@@ -228,14 +323,12 @@ ul, ol {
 	backdrop-filter: blur(4px);
 	padding: 2px 0;
 	transition: color var(--transition);
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff2;
 	text-transform: uppercase;
 	text-decoration: none !important;
 }
 .nav-link:hover,
 .nav-link:focus {
 	color: var(--accent-red);
-	text-shadow: 0 0 12px #fff, 0 0 24px #fff3;
 }
 .navbar-container {
 	display: flex;
@@ -252,14 +345,14 @@ ul, ol {
 .nav-links {
 	display: flex;
 	gap: 2.5rem;
-	margin-left: 1.2rem;
-	margin-right: 1.2rem;
+	align-items: center;
 	justify-content: flex-end;
 }
 .cta-btn {
+		text-decoration: none !important;
 	display: inline-block;
 	background: linear-gradient(90deg, #730c1e, #480415);
-	color: #fff;
+	color: #fff !important;
 	border: none;
 	border-radius: var(--radius);
 	padding: 1.1rem 2.8rem;
@@ -268,13 +361,11 @@ ul, ol {
 	box-shadow: 0 4px 32px 0 var(--soft-red-glow);
 	cursor: pointer;
 	transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
-	text-shadow: 0 0 10px #fff, 0 0 20px #fff3;
 }
 .cta-btn:hover {
 	box-shadow: 0 8px 40px 0 var(--soft-red-glow);
 	background: linear-gradient(90deg, #480415, #730c1e);
 	transform: translateY(-3px) scale(1.03);
-	text-shadow: 0 0 16px #fff, 0 0 32px #fff4;
 }
 .nav-hamburger {
 	display: none;
@@ -324,17 +415,13 @@ ul, ol {
 	letter-spacing: 1px;
 	margin-bottom: 1.2rem;
 	color: #e0e0e0;
-	text-shadow: 0 0 24px #fff, 0 0 48px #e0e0e0, 0 0 8px #fff8;
 	text-align: center;
 	text-transform: uppercase;
-	color: #caa5cb;
-	text-shadow: 0 0 12px #fff2;
 }
 .hero-subtitle {
 	font-size: 1.3rem;
 	color: #caa5cb;
 	margin-bottom: 2.5rem;
-	text-shadow: 0 0 8px #fff2;
 }
 
 .cta-btn {
@@ -416,7 +503,6 @@ ul, ol {
 }
 .mentor-name {
 		color: #fff;
-		text-shadow: 0 0 10px #fff, 0 0 20px #fff8;
 		text-align: center;
 	font-size: 1.15rem;
 	font-weight: 700;
@@ -425,7 +511,6 @@ ul, ol {
 .mentor-role {
 	color: #fff;
 	font-size: 1rem;
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff8;
 	text-align: center;
 }
 .mentor-card:hover {
@@ -458,7 +543,6 @@ ul, ol {
 	box-shadow: 0 0 16px #caa5cb99, 0 0 32px #fff2;
 	transition: border var(--transition), box-shadow var(--transition);
 	outline: none;
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff8;
 	text-align: center;
 	font-weight: 500;
 }
@@ -467,7 +551,6 @@ ul, ol {
 	opacity: 1;
 	font-size: 1.1rem;
 	text-align: center;
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff8;
 }
 .search-input:focus {
 	outline: none;
@@ -625,10 +708,19 @@ ul, ol {
 	box-shadow: 0 4px 32px 0 var(--soft-red-glow);
 	cursor: pointer;
 	transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
-	text-shadow: 0 0 10px #fff, 0 0 20px #fff3;
+}
+.cta-btn:hover {
+	background: none;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .profile-bio {
-	color: var(--text-light);
+	color: #e34a5c;
+	background: rgba(115,12,30,0.12);
+	border-radius: 8px;
+	padding: 6px 18px;
+	transition: color var(--transition), background var(--transition);
+	backdrop-filter: blur(4px);
 	font-size: 1.1rem;
 	margin-bottom: 1.2rem;
 }
@@ -744,10 +836,9 @@ ul, ol {
 	font-size: 1.3rem;
 	color: #fff;
 	margin-bottom: 2.5rem;
-	text-shadow: 0 0 12px #fff, 0 0 24px #fff8;
 	text-align: center;
 }
-.footer-icons {
+.footer-socials {
 	display: flex;
 	gap: 1.2rem;
 	margin-top: 0.5rem;
