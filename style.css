@@ -76,7 +76,6 @@
 		text-align: center;
 		text-transform: uppercase;
 		-webkit-text-stroke: 2px #e34a5c;
-		text-stroke: 2px #e34a5c;
 		text-shadow: 0 0 32px #e34a5c, 0 0 64px #e34a5c44, 0 0 8px #fff8;
 		background: none;
 	}
@@ -86,11 +85,10 @@
 		align-items: center;
 		width: 100%;
 		margin: 0 auto 2.5rem auto;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
 	}
-	width: 100%;
-	max-width: 500px;
-	margin-left: auto;
-	margin-right: auto;
 /* Center section headings for mentors and folks */
 .mentors-heading, .folks-heading, .mentors-title, .folks-title {
 	color: #fff;
@@ -323,6 +321,7 @@ ul, ol {
 	color: var(--accent-red);
 	text-shadow: 0 0 12px #fff, 0 0 24px #fff3;
 }
+.navbar-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -712,6 +711,7 @@ ul, ol {
 	transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
 	text-shadow: 0 0 10px #fff, 0 0 20px #fff3;
 }
+.cta-btn:hover {
 	background: none;
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -841,6 +841,7 @@ ul, ol {
 	text-shadow: 0 0 12px #fff, 0 0 24px #fff8;
 	text-align: center;
 }
+.footer-socials {
 	display: flex;
 	gap: 1.2rem;
 	margin-top: 0.5rem;
