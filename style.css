@@ -221,6 +221,8 @@ ul, ol {
 .nav-links {
 	display: flex;
 	gap: 2.5rem;
+	margin-left: auto;
+	justify-content: flex-end;
 }
 .cta-btn {
 	display: inline-block;
