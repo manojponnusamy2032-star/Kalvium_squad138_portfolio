@@ -1,3 +1,29 @@
+	/* Modern glowing footer inspired by ReviewSync */
+	.modern-footer {
+		width: 100%;
+		background: linear-gradient(90deg, rgba(20,15,23,0.85) 0%, rgba(33,2,7,0.75) 100%);
+		backdrop-filter: blur(12px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 2.5rem 0 2.5rem 0;
+		margin-top: 4rem;
+		border-radius: 32px 32px 0 0;
+		box-shadow: 0 -8px 32px 0 rgba(20,15,23,0.18), 0 -2px 8px 0 rgba(115,12,30,0.12);
+	}
+	.footer-glow-text {
+		font-family: 'Inter', Arial, sans-serif;
+		font-size: 4.2rem;
+		font-weight: 900;
+		letter-spacing: 0.12em;
+		color: transparent;
+		text-align: center;
+		text-transform: uppercase;
+		-webkit-text-stroke: 2px #e34a5c;
+		text-stroke: 2px #e34a5c;
+		text-shadow: 0 0 32px #e34a5c, 0 0 64px #e34a5c44, 0 0 8px #fff8;
+		background: none;
+	}
 	.search-bar-center {
 		display: flex;
 		justify-content: center;
@@ -203,6 +229,19 @@ ul, ol {
 }
 
 /* 3. LAYOUT SYSTEM */
+/* Glassy dark navbar */
+.navbar {
+	background: linear-gradient(90deg, rgba(20,15,23,0.85) 0%, rgba(33,2,7,0.75) 100%);
+	backdrop-filter: blur(18px);
+	border-radius: 32px;
+	box-shadow: 0 8px 32px 0 rgba(20,15,23,0.18), 0 2px 8px 0 rgba(115,12,30,0.12);
+	border-bottom: 1.5px solid rgba(115,12,30,0.22);
+	padding: 1.2rem 0 1.2rem 0;
+	min-height: 72px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
 .nav-link {
 	font-size: 1.08rem;
 	font-weight: 500;
@@ -232,13 +271,16 @@ ul, ol {
 .nav-links {
 	display: flex;
 	gap: 2.5rem;
-	margin-left: auto;
+	margin-left: 1.2rem;
+	margin-right: 1.2rem;
 	justify-content: flex-end;
 }
 .cta-btn {
+		text-decoration: none !important;
 	display: inline-block;
 	background: linear-gradient(90deg, #730c1e, #480415);
-	color: #fff;
+	color: #fff !important;
+	text-shadow: 0 0 18px #fff, 0 0 36px #fff8;
 	border: none;
 	border-radius: var(--radius);
 	padding: 1.1rem 2.8rem;
@@ -306,8 +348,6 @@ ul, ol {
 	text-shadow: 0 0 24px #fff, 0 0 48px #e0e0e0, 0 0 8px #fff8;
 	text-align: center;
 	text-transform: uppercase;
-	color: #caa5cb;
-	text-shadow: 0 0 12px #fff2;
 }
 .hero-subtitle {
 	font-size: 1.3rem;
@@ -611,7 +651,12 @@ ul, ol {
 	padding-bottom: 30px;
 }
 .profile-bio {
-	color: var(--text-light);
+	color: #e34a5c;
+	background: rgba(115,12,30,0.12);
+	border-radius: 8px;
+	padding: 6px 18px;
+	transition: color var(--transition), background var(--transition);
+	backdrop-filter: blur(4px);
 	font-size: 1.1rem;
 	margin-bottom: 1.2rem;
 }
