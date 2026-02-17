@@ -16,7 +16,8 @@
 	text-shadow: 0 0 16px #fff, 0 0 32px #fff8;
 	font-size: 2.5rem;
 	font-weight: 800;
-	margin-bottom: 2.2rem;
+	margin-bottom: 1.5rem;
+	margin-top: 0.8rem;
 	letter-spacing: -1px;
 	text-transform: uppercase;
 }
@@ -180,16 +181,17 @@
 	box-sizing: border-box;
 }
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-	margin: 0;
-	padding: 0;
-	font-family: 'Inter', Arial, sans-serif;
-	background: var(--bg-gradient);
-	color: var(--text-light);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	min-height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #000 !important;
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 a {
 	color: inherit;
@@ -203,10 +205,31 @@ ul, ol {
 }
 
 /* 3. LAYOUT SYSTEM */
+/* Glassy red navbar */
+.navbar {
+	background: linear-gradient(90deg, rgba(20,15,23,0.85) 0%, rgba(33,2,7,0.75) 100%);
+	backdrop-filter: blur(12px);
+	border-radius: 0 0 18px 18px;
+	box-shadow: 0 4px 32px 0 rgba(115,12,30,0.18);
+	border-bottom: 1.5px solid rgba(115,12,30,0.22);
+	padding: 1.2rem 0 1.2rem 0;
+	min-height: 72px;
+	border-radius: 32px;
+	box-shadow: 0 8px 32px 0 rgba(20,15,23,0.18), 0 2px 8px 0 rgba(115,12,30,0.12);
+	backdrop-filter: blur(18px);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
 .nav-link {
 	font-size: 1.08rem;
 	font-weight: 500;
-	color: var(--text-light);
+	color: #e34a5c;
+	background: rgba(115,12,30,0.12);
+	border-radius: 8px;
+	padding: 6px 18px;
+	transition: color var(--transition), background var(--transition);
+	backdrop-filter: blur(4px);
 	padding: 2px 0;
 	transition: color var(--transition);
 	text-shadow: 0 0 8px #fff, 0 0 16px #fff2;
@@ -232,7 +255,8 @@ ul, ol {
 .nav-links {
 	display: flex;
 	gap: 2.5rem;
-	margin-left: auto;
+	margin-left: 1.2rem;
+	margin-right: 1.2rem;
 	justify-content: flex-end;
 }
 .cta-btn {
@@ -421,7 +445,7 @@ ul, ol {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	margin: 0 auto 2.5rem auto;
+	margin: 1.2rem auto 2.5rem auto;
 }
 .search-input {
 	padding: 1.1rem 1.7rem;
