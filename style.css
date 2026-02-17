@@ -93,7 +93,6 @@
 .mentors-heading, .folks-heading, .mentors-title, .folks-title {
 	color: #fff;
 	text-align: center;
-	text-shadow: 0 0 16px #fff, 0 0 32px #fff8;
 	font-size: 2.5rem;
 	font-weight: 800;
 	margin-bottom: 1.5rem;
@@ -126,6 +125,13 @@
 	height: 45px;
 	width: auto;
 	max-width: 120px;
+}
+.navbar-logo {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	flex-shrink: 0;
 }
 .logo-intro {
 	width: 180px;
@@ -299,6 +305,11 @@ ul, ol {
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
 }
 .nav-link {
 	font-size: 1.08rem;
@@ -311,14 +322,12 @@ ul, ol {
 	backdrop-filter: blur(4px);
 	padding: 2px 0;
 	transition: color var(--transition);
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff2;
 	text-transform: uppercase;
 	text-decoration: none !important;
 }
 .nav-link:hover,
 .nav-link:focus {
 	color: var(--accent-red);
-	text-shadow: 0 0 12px #fff, 0 0 24px #fff3;
 }
 .navbar-container {
 	display: flex;
@@ -335,8 +344,7 @@ ul, ol {
 .nav-links {
 	display: flex;
 	gap: 2.5rem;
-	margin-left: 1.2rem;
-	margin-right: 1.2rem;
+	align-items: center;
 	justify-content: flex-end;
 }
 .cta-btn {
@@ -353,13 +361,11 @@ ul, ol {
 	box-shadow: 0 4px 32px 0 var(--soft-red-glow);
 	cursor: pointer;
 	transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
-	text-shadow: 0 0 10px #fff, 0 0 20px #fff3;
 }
 .cta-btn:hover {
 	box-shadow: 0 8px 40px 0 var(--soft-red-glow);
 	background: linear-gradient(90deg, #480415, #730c1e);
 	transform: translateY(-3px) scale(1.03);
-	text-shadow: 0 0 16px #fff, 0 0 32px #fff4;
 }
 .nav-hamburger {
 	display: none;
@@ -409,7 +415,6 @@ ul, ol {
 	letter-spacing: 1px;
 	margin-bottom: 1.2rem;
 	color: #e0e0e0;
-	text-shadow: 0 0 24px #fff, 0 0 48px #e0e0e0, 0 0 8px #fff8;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -417,7 +422,6 @@ ul, ol {
 	font-size: 1.3rem;
 	color: #caa5cb;
 	margin-bottom: 2.5rem;
-	text-shadow: 0 0 8px #fff2;
 }
 
 .cta-btn {
@@ -499,7 +503,6 @@ ul, ol {
 }
 .mentor-name {
 		color: #fff;
-		text-shadow: 0 0 10px #fff, 0 0 20px #fff8;
 		text-align: center;
 	font-size: 1.15rem;
 	font-weight: 700;
@@ -508,7 +511,6 @@ ul, ol {
 .mentor-role {
 	color: #fff;
 	font-size: 1rem;
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff8;
 	text-align: center;
 }
 .mentor-card:hover {
@@ -541,7 +543,6 @@ ul, ol {
 	box-shadow: 0 0 16px #caa5cb99, 0 0 32px #fff2;
 	transition: border var(--transition), box-shadow var(--transition);
 	outline: none;
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff8;
 	text-align: center;
 	font-weight: 500;
 }
@@ -550,7 +551,6 @@ ul, ol {
 	opacity: 1;
 	font-size: 1.1rem;
 	text-align: center;
-	text-shadow: 0 0 8px #fff, 0 0 16px #fff8;
 }
 .search-input:focus {
 	outline: none;
@@ -708,7 +708,6 @@ ul, ol {
 	box-shadow: 0 4px 32px 0 var(--soft-red-glow);
 	cursor: pointer;
 	transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
-	text-shadow: 0 0 10px #fff, 0 0 20px #fff3;
 }
 .cta-btn:hover {
 	background: none;
@@ -837,7 +836,6 @@ ul, ol {
 	font-size: 1.3rem;
 	color: #fff;
 	margin-bottom: 2.5rem;
-	text-shadow: 0 0 12px #fff, 0 0 24px #fff8;
 	text-align: center;
 }
 .footer-socials {
