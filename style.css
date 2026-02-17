@@ -76,7 +76,7 @@
 		text-align: center;
 		text-transform: uppercase;
 		-webkit-text-stroke: 2px #e34a5c;
-		text-shadow: 0 0 12px #e34a5c88;
+		text-shadow: 0 0 32px #e34a5c, 0 0 64px #e34a5c44, 0 0 8px #fff8;
 		background: none;
 	}
 	.search-bar-center {
@@ -353,6 +353,7 @@ ul, ol {
 	display: inline-block;
 	background: linear-gradient(90deg, #730c1e, #480415);
 	color: #fff !important;
+	text-shadow: 0 0 18px #fff, 0 0 36px #fff8;
 	border: none;
 	border-radius: var(--radius);
 	padding: 1.1rem 2.8rem;
