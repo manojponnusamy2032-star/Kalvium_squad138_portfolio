@@ -13,24 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	const introBrand = document.querySelector('.intro-brand');
 	const navBrand = document.querySelector('.nav-brand');
 	const navbar = document.querySelector('.navbar');
+	const navEntry = performance.getEntriesByType('navigation')[0];
+	const navType = navEntry ? navEntry.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : 'navigate');
+	const cameFromStudent = sessionStorage.getItem('fromStudent') === 'true';
 	
-	// Check if user has already seen the intro in this session
-	const hasSeenIntro = sessionStorage.getItem('introPlayed');
+	if (cameFromStudent) {
+		sessionStorage.removeItem('fromStudent');
+	}
+	
+	const shouldPlayIntro = navType === 'reload' || !cameFromStudent;
 	
 	if (introOverlay && introBrand && navBrand && navbar) {
-		
-		// Skip intro if already seen in this session
-		if (hasSeenIntro) {
-			// Remove intro overlay immediately
+		if (!shouldPlayIntro) {
 			introOverlay.remove();
 			document.body.classList.add('intro-complete');
 			initScrollAnimations();
 			initProfileCardClicks();
 			return;
 		}
-		
-		// Mark intro as seen for this session
-		sessionStorage.setItem('introPlayed', 'true');
 		
 		// ============================================
 		// ANIMATION TIMELINE
@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			card.addEventListener('click', () => {
 				const id = card.getAttribute('data-id');
 				if (id) {
+					sessionStorage.setItem('fromStudent', 'true');
 					window.location.href = `student.html?id=${id}`;
 				}
 			});
@@ -127,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (e.key === 'Enter' || e.key === ' ') {
 					const id = card.getAttribute('data-id');
 					if (id) {
+						sessionStorage.setItem('fromStudent', 'true');
 						window.location.href = `student.html?id=${id}`;
 					}
 				}
