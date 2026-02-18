@@ -7,6 +7,7 @@
 	<title>Profile – Squad 138 Elite Developer Fellowship</title>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 	<!-- HEADER / NAVBAR -->
@@ -14,9 +15,9 @@
 		<nav class="navbar container">
 			<div class="logo">Squad 138</div>
 			<ul class="nav-links">
-				<li><a href="index.html#hero" class="nav-link">Home</a></li>
-				<li><a href="index.html#mentors" class="nav-link">Mentors</a></li>
-				<li><a href="index.html#fellows" class="nav-link">Fellows</a></li>
+				<li><a href="index.html#hero" class="nav-link">HOME</a></li>
+				<li><a href="index.html#mentors" class="nav-link">MENTORS</a></li>
+				<li><a href="index.html#folks" class="nav-link">FOLKS</a></li>
 			</ul>
 			<button class="nav-hamburger" aria-label="Open navigation menu">
 				<span class="hamburger-bar"></span>
@@ -30,18 +31,19 @@
 		<!-- PROFILE HERO SECTION ONLY -->
 		<section class="profile-hero-section">
 			<div class="container profile-hero-content">
-				<button class="back-btn" onclick="window.location.href='index.html'" aria-label="Back to main page">&larr; Back</button>
+				<button class="back-btn" onclick="window.location.href='index.html'" aria-label="Back to main page">← Back</button>
 				<img id="profileImage" class="profile-image" src="" alt="Profile photo" />
 				<h1 id="profileName" class="profile-name"></h1>
+				<p id="profileRole" class="profile-role"></p>
+				<div id="profileBio" class="profile-bio"></div>
 				<div class="profile-socials">
 					<a id="profileGithub" class="profile-social-btn" href="#" target="_blank" aria-label="GitHub profile">
-						<span class="profile-social-icon">[GH]</span>
+						<i class="fab fa-github"></i>
 					</a>
 					<a id="profileLinkedin" class="profile-social-btn" href="#" target="_blank" aria-label="LinkedIn profile">
-						<span class="profile-social-icon">[LN]</span>
+						<i class="fab fa-linkedin"></i>
 					</a>
 				</div>
-				<div id="profileBio" class="profile-bio"></div>
 			</div>
 		</section>
 	</main>

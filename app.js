@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				link.href = project.link;
 				link.target = '_blank';
 				link.setAttribute('aria-label', 'View on GitHub');
-				link.textContent = '[GH]';
+				link.innerHTML = '<i class="fab fa-github"></i>';
 				card.appendChild(title);
 				card.appendChild(desc);
 				card.appendChild(link);
