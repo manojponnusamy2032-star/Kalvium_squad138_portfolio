@@ -36,48 +36,35 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Main Mentor
 		{
 			id: 'main-mentor',
-			name: 'Dr. Aryan Kapoor',
+			name: 'Karunakaran.H',
 			role: 'Main Mentor',
-			image: 'images/aryan.jpg',
-			github: 'https://github.com/aryankapoor',
-			linkedin: 'https://linkedin.com/in/aryankapoor',
-			bio: 'Lead architect and mentor with 15+ years in FinTech and EdTech. Passionate about building elite developer teams.',
-			dream: 'Empowering the next generation of tech leaders.',
-			skills: ['Leadership', 'React', 'Node.js', 'Cloud', 'FinTech'],
-			projects: [
-				{ title: 'FinEdge Platform', description: 'A scalable digital banking solution for emerging markets.', link: 'https://github.com/aryankapoor/finedge' },
-				{ title: 'MentorHub', description: 'AI-powered mentorship matching for tech fellows.', link: 'https://github.com/aryankapoor/mentorhub' }
-			]
+			image: 'https://i.ibb.co/fdx5tJG2/Karunakaran-H-Karunakaran.jpg',
+			github:'https://github.com/',
+			linkedin: 'https://www.linkedin.com/in/h-karunakaran-3b1285376',
+			bio: 'Karunakaran is a dedicated academic professional passionate about student development, technology-driven learning, and building strong campus communities. He focuses on mentoring students in problem solving, discipline, and career readiness. With a commitment to continuous improvement, he works closely with squads to create an environment that encourages creativity, accountability, and practical learning.',
+			
 		},
 		// Mentor 1
 		{
-			id: 'mentor-jaya',
-			name: 'Jaya Menon',
+			id: 'mentor-aravind',
+			name: 'Aravind.R',
 			role: 'Mentor',
-			image: 'images/jaya.jpg',
-			github: 'https://github.com/jayamenon',
-			linkedin: 'https://linkedin.com/in/jayamenon',
-			bio: 'UI/UX specialist and product designer. Loves crafting beautiful, accessible interfaces.',
-			dream: 'Designing products that change lives.',
-			skills: ['UI/UX', 'Figma', 'Accessibility', 'React'],
-			projects: [
-				{ title: 'Pulse UI Kit', description: 'A modern UI kit for FinTech dashboards.', link: 'https://github.com/jayamenon/pulse-ui' }
-			]
+			image: 'https://i.ibb.co/JFjMddRh/Aravind-R-2.jpg',
+			github: 'https://github.com/Aravindrathenam',
+			linkedin: 'https://www.linkedin.com/in/aravind-r-812634245/',
+			bio: 'Currently a professional Wait, why is it doing that? investigator at Kalvium. As an Academic Mentor, I spend my days helping students realize that 90% of coding is just staring at a screen until the screen blinks first. I’m part-time debugger, part-time cheerleader, and full-time convinced that the semicolon is the most powerful character in the English language. I don’t just teach people how to code; I teach them how to not throw their laptops out the window.',
+
 		},
 		// Mentor 2
 		{
-			id: 'mentor-rahul',
-			name: 'Rahul Deshmukh',
+			id: 'mentor-Hanuram',
+			name: 'Hanuram.T',
 			role: 'Mentor',
-			image: 'images/rahul.jpg',
-			github: 'https://github.com/rahuldeshmukh',
-			linkedin: 'https://linkedin.com/in/rahuldeshmukh',
-			bio: 'Backend engineer and DevOps mentor. Enjoys automating everything.',
-			dream: 'Building systems that never go down.',
-			skills: ['Node.js', 'DevOps', 'AWS', 'Docker'],
-			projects: [
-				{ title: 'AutoDeploy', description: 'CI/CD automation for cloud-native apps.', link: 'https://github.com/rahuldeshmukh/autodeploy' }
-			]
+			image: 'https://i.ibb.co/ynQ90dvT/IMG-3197-Hanuram-T.jpg',
+			github: 'https://github.com/Mentor-Ram',
+			linkedin: 'http://www.linkedin.com/in/hanuram-t',
+			bio: 'Academic mentor cum business analyst, balancing logic, data, and good vibes.',
+			
 		},
 		// Demo Fellows
 		{
