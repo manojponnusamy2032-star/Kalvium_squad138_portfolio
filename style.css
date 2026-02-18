@@ -302,8 +302,17 @@ ul, ol {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+}
+header.header.sticky-header {
+  display: flex; /* Enables flexbox layout for its direct children */
+  justify-content: space-between; /* Pushes content to the far ends (logo left, nav right) */
+  align-items: center; /* Vertically centers the logo and navigation within the header */
+  padding: 0; /* Removes any padding from the header */
+  margin: 0; /* Removes any margin from the header */
+}
+nav.navbar.container {
+  padding: 0; /* Removes any horizontal padding that creates the side gaps */
+  width: 100%; /* Ensures the navigation takes full available width within the header */
 }
 .nav-link {
 	font-size: 1.08rem;
