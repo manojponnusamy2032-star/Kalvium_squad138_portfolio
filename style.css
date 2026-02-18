@@ -14,7 +14,7 @@
 
 	/* --- CONTAINER SYSTEM --- */
 	.container {
-		max-width: 1200px;
+		max-width: 100%;
 		margin: 0 auto;
 		padding: 0 24px;
 	}
@@ -302,6 +302,9 @@ ul, ol {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 100%;
+    padding: 0 40px; /* Adjust this value (e.g., 5% or 60px) to set the gap from the edge */
+    box-sizing: border-box;
 }
 header.header.sticky-header {
   display: flex; /* Enables flexbox layout for its direct children */
@@ -311,8 +314,8 @@ header.header.sticky-header {
   margin: 0; /* Removes any margin from the header */
 }
 nav.navbar.container {
-  padding: 0; /* Removes any horizontal padding that creates the side gaps */
-  width: 100%; /* Ensures the navigation takes full available width within the header */
+	max-width: 100% !important; 
+	padding: 0 40px;
 }
 .nav-link {
 	font-size: 1.08rem;
