@@ -36,31 +36,9 @@ body {
     touch-action: pan-y; 
 }
 
-.navbar {	
-	min-height: 72px;
-	box-shadow: 0 8px 32px 0 rgba(20,15,23,0.18), 0 2px 8px 0 rgba(115,12,30,0.12);
-	backdrop-filter: blur(18px);
-	position: sticky;
-	top: 0;
-	z-index: 100;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-    padding: 0 40px; /* Adjust this value (e.g., 5% or 60px) to set the gap from the edge */
-    box-sizing: border-box;
-}
-header.header.sticky-header {
-  display: flex; /* Enables flexbox layout for its direct children */
-  justify-content: space-between; /* Pushes content to the far ends (logo left, nav right) */
-  align-items: center; /* Vertically centers the logo and navigation within the header */
-  padding: 0; /* Removes any padding from the header */
-  margin: 0; /* Removes any margin from the header */
-}
-nav.navbar.container {
-	max-width: 100% !important; 
-	padding: 0 40px;
-}
+/* =============================================================
+   PREMIUM CINEMATIC INTRO ANIMATION
+   ============================================================= */
 .nav-link {
 	font-size: 1.08rem;
 	font-weight: 500;
@@ -68,7 +46,7 @@ nav.navbar.container {
 	background: rgba(115,12,30,0.12);
 	border-radius: 8px;
 	padding: 6px 18px;
-	transition: color var(--transition), background var(--transition);
+	transition: color var(--transition), background var(--transition), transform 0.3s ease;
 	backdrop-filter: blur(4px);
 	padding: 2px 0;
 	transition: color var(--transition);
@@ -77,7 +55,10 @@ nav.navbar.container {
 }
 .nav-link:hover,
 .nav-link:focus {
-	color: var(--accent-red);
+	color: #ff6b7d;
+	background: rgba(255, 107, 125, 0.15);
+	transform: translateY(-2px);
+	text-shadow: 0 0 8px rgba(255, 107, 125, 0.4);
 }
 .navbar-container {
 	display: flex;
@@ -85,20 +66,17 @@ nav.navbar.container {
 	justify-content: space-between;
 	height: 64px;
 }
+
 .logo {
 	font-size: 1.5rem;
 	font-weight: 700;
 	letter-spacing: 1px;
 	color: var(--primary-red);
 }
-.nav-links {
-	display: flex;
-	gap: 2.5rem;
-	align-items: center;
-	justify-content: flex-end;
-}
+
+/* CTA Button */
 .cta-btn {
-		text-decoration: none !important;
+	text-decoration: none !important;
 	display: inline-block;
 	background: linear-gradient(90deg, #730c1e, #480415);
 	color: #fff !important;
@@ -112,63 +90,261 @@ nav.navbar.container {
 	cursor: pointer;
 	transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
 }
+
 .cta-btn:hover {
 	box-shadow: 0 8px 40px 0 var(--soft-red-glow);
 	background: linear-gradient(90deg, #480415, #730c1e);
 	transform: translateY(-3px) scale(1.03);
 }
-.nav-hamburger {
-	display: none;
-	background: none;
-	border: none;
-	flex-direction: column;
-	gap: 4px;
-	cursor: pointer;
-}
-.hamburger-bar {
-	width: 24px;
-	height: 3px;
-	background: var(--text-light);
-	border-radius: 2px;
-}
-.nav-logo {
-	height: 45px;
-	width: auto;
-	max-width: 120px;
-}
-.logo-intro {
-	width: 180px;
-	max-width: 80vw;
-	height: auto;
-}
-.navbar-logo img {
-	display: block;
+
+/* =============================================================
+   PREMIUM CINEMATIC INTRO ANIMATION
+   ============================================================= */
+
+/* Disable scroll during intro */
+body:not(.intro-complete) {
+    overflow: hidden !important;
 }
 
-#logo-intro-overlay {
-	position: fixed;
-	z-index: 9999;
-	top: 0; left: 0; right: 0; bottom: 0;
-	width: 100vw;
-	height: 100vh;
-	background: #000;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: opacity 1s cubic-bezier(.4,0,.2,1);
+/* Intro Overlay - Full screen black */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
 }
-.logo-intro-img {
-	width: 160px;
-	height: 160px;
-	opacity: 0;
-	transform: scale(0.7);
-	animation: logoIntroAnim 1.4s cubic-bezier(.4,0,.2,1) 0.2s forwards;
+
+/* =============================================================
+   SHARED BRAND COMPONENT (Intro & Navbar)
+   ============================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-@keyframes logoIntroAnim {
-	0% { opacity: 0; transform: scale(0.7); }
-	60% { opacity: 1; transform: scale(1.08); }
-	80% { opacity: 1; transform: scale(0.96); }
-	100% { opacity: 1; transform: scale(1); }
+
+.brand-logo {
+    height: 42px;
+    width: auto;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.main-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+.sub-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.85;
+    letter-spacing: 0.03em;
+}
+
+/* =============================================================
+   INTRO BRAND (Centered, Larger Scale)
+   ============================================================= */
+
+.intro-brand {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    will-change: transform;
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+    animation: introBrandFadeIn 1.2s ease-out forwards;
+}
+
+/* Initial Fade-In Animation (0s - 1.2s) */
+@keyframes introBrandFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.6);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(2.4);
+    }
+}
+
+/* Navbar - Initially hidden, fades in after intro */
+.navbar {	
+    min-height: 72px;
+    box-shadow: 0 8px 32px 0 rgba(20,15,23,0.18), 0 2px 8px 0 rgba(115,12,30,0.12);
+    backdrop-filter: blur(18px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.intro-complete .navbar {
+    opacity: 1;
+}
+
+/* Header styling */
+header.header.sticky-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav.navbar.container {
+    max-width: 100% !important;
+    padding: 0 40px;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #e34a5c;
+    background: rgba(115,12,30,0.12);
+    border-radius: 8px;
+    padding: 6px 18px;
+    transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(4px);
+    padding: 2px 0;
+    text-transform: uppercase;
+    text-decoration: none !important;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #ff6b7d;
+    background: rgba(255, 107, 125, 0.15);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(255, 107, 125, 0.4);
+}
+
+/* Hamburger menu */
+.nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.hamburger-bar {
+    width: 24px;
+    height: 3px;
+    background: var(--text-light);
+    border-radius: 2px;
+}
+
+/* Main content fade in */
+main {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.intro-complete main {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =============================================================
+   SMOOTH SCROLL ANIMATIONS
+   ============================================================= */
+
+/* Elements hidden by default until they scroll into view */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* When element is visible */
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for multiple items */
+.scroll-animate:nth-child(1) { transition-delay: 0s; }
+.scroll-animate:nth-child(2) { transition-delay: 0.1s; }
+.scroll-animate:nth-child(3) { transition-delay: 0.2s; }
+.scroll-animate:nth-child(4) { transition-delay: 0.3s; }
+.scroll-animate:nth-child(5) { transition-delay: 0.4s; }
+.scroll-animate:nth-child(6) { transition-delay: 0.5s; }
+.scroll-animate:nth-child(7) { transition-delay: 0.6s; }
+.scroll-animate:nth-child(8) { transition-delay: 0.7s; }
+
+/* Fade from left */
+.scroll-fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-fade-left.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade from right */
+.scroll-fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-fade-right.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale up animation */
+.scroll-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-scale.animate-in {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* 2. CSS VARIABLES */
@@ -214,6 +390,9 @@ h1, h2, h3, h4, h5, h6 {
 	background: none;
 	text-align: center;
 }
+.back-btn-wrapper {
+	text-align: left;
+}
 .profile-hero-content {
 	display: flex;
 	flex-direction: column;
@@ -222,7 +401,6 @@ h1, h2, h3, h4, h5, h6 {
 	position: relative;
 }
 .back-btn {
-	align-self: flex-start;
 	background: transparent;
 	border: 2px solid var(--primary-red);
 	color: var(--primary-red);
@@ -232,10 +410,11 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 8px;
 	cursor: pointer;
 	transition: all var(--transition);
-	margin-bottom: 1rem;
-	margin-left: -60px;
+	margin-bottom: 2rem;
+	margin-left: -134px;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
+	display: inline-block;
 }
 .back-btn:hover {
 	background: var(--primary-red);
@@ -438,8 +617,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .folk-photo, .mentor-photo {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 1rem;
@@ -476,18 +655,29 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 32px 32px 0 0;
     box-shadow: 0 -8px 32px 0 rgba(20, 15, 23, 0.18);
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 1rem;
     overflow: hidden; /* Vital to stop glow-related dance */
 }
 
 .footer-glow-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 9rem;
+    font-size: 7.6rem;
     font-weight: 900;
     color: transparent;
     -webkit-text-stroke: 2px #e34a5c;
-    text-shadow: 0 0 32px #e34a5c;
+    text-shadow: 0 0 24px #e34a5c;
     text-transform: uppercase;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff;
+    opacity: 0.85;
+    margin: 0.2rem 0 0;
 }
 
 /* 10. RESPONSIVE BREAKPOINTS */
