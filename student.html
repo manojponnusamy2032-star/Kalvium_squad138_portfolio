@@ -13,7 +13,13 @@
 	<!-- HEADER / NAVBAR -->
 	<header class="header sticky-header">
 		<nav class="navbar container">
-			<div class="logo">Squad 138</div>
+			<div class="nav-brand brand">
+				<img src="https://i.ibb.co/0R51D4YG/kalvium-logo-removebg-preview.png" alt="Kalvium Logo" class="brand-logo">
+				<div class="brand-text">
+					<span class="main-text">Kalvium</span>
+					<span class="sub-text">Squad 138</span>
+				</div>
+			</div>
 			<ul class="nav-links">
 				<li><a href="index.html#hero" class="nav-link">HOME</a></li>
 				<li><a href="index.html#mentors" class="nav-link">MENTORS</a></li>
@@ -30,11 +36,12 @@
 	<main>
 		<!-- PROFILE HERO SECTION ONLY -->
 		<section class="profile-hero-section">
-			<div class="container profile-hero-content">
+			<div class="container back-btn-wrapper">
 				<button class="back-btn" onclick="window.location.href='index.html'" aria-label="Back to main page">← Back</button>
+			</div>
+			<div class="container profile-hero-content">
 				<img id="profileImage" class="profile-image" src="" alt="Profile photo" />
 				<h1 id="profileName" class="profile-name"></h1>
-				<p id="profileRole" class="profile-role"></p>
 				<div id="profileBio" class="profile-bio"></div>
 				<div class="profile-socials">
 					<a id="profileGithub" class="profile-social-btn" href="#" target="_blank" aria-label="GitHub profile">
