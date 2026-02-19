@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	if (cameFromStudent) {
 		sessionStorage.removeItem('fromStudent');
+		// Restore scroll position if coming back from student page
+		const savedScrollY = sessionStorage.getItem('scrollPosition');
+		if (savedScrollY) {
+			setTimeout(() => {
+				window.scrollTo(0, parseInt(savedScrollY));
+				sessionStorage.removeItem('scrollPosition');
+			}, 0);
+		}
 	}
 	
 	const shouldPlayIntro = navType === 'reload' || !cameFromStudent;
@@ -117,6 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			card.addEventListener('click', () => {
 				const id = card.getAttribute('data-id');
 				if (id) {
+					// Save current scroll position before navigating
+					sessionStorage.setItem('scrollPosition', window.scrollY);
 					sessionStorage.setItem('fromStudent', 'true');
 					window.location.href = `student.html?id=${id}`;
 				}
@@ -128,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (e.key === 'Enter' || e.key === ' ') {
 					const id = card.getAttribute('data-id');
 					if (id) {
+						// Save current scroll position before navigating
+						sessionStorage.setItem('scrollPosition', window.scrollY);
 						sessionStorage.setItem('fromStudent', 'true');
 						window.location.href = `student.html?id=${id}`;
 					}
@@ -773,10 +785,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		// Click to profile
 		card.addEventListener('click', () => {
+			// Save current scroll position before navigating
+			sessionStorage.setItem('scrollPosition', window.scrollY);
+			sessionStorage.setItem('fromStudent', 'true');
 			window.location.href = `student.html?id=${member.id}`;
 		});
 		card.addEventListener('keypress', e => {
-			if (e.key === 'Enter') window.location.href = `student.html?id=${member.id}`;
+			if (e.key === 'Enter') {
+				// Save current scroll position before navigating
+				sessionStorage.setItem('scrollPosition', window.scrollY);
+				sessionStorage.setItem('fromStudent', 'true');
+				window.location.href = `student.html?id=${member.id}`;
+			}
 		});
 
 		return card;
