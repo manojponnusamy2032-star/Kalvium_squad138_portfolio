@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/4nK0j9MH/250310106005-Arvind-selva-Jas-J-S.jpg',
 			github: 'https://github.com/arvindselvajas0222-coder',
 			linkedin: 'https://www.linkedin.com/in/arvind-selva-jas-j-s-68a79b381/',
-			bio: 'I’m really good at turning ordinary moments into fun adventures',
+			bio: 'I am a passionate and dedicated student pursuing B.Tech in Computer Science Engineering. I have a strong interest in programming, problem-solving, and exploring new technologies. My goal is to become a skilled software developer and contribute to innovative projects.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			projects: []
 		},
 		{
-			id: 'folks-hariharan-s',
+			id: 'folks-haricharan-p',
 			name: 'Hari Charan P',
 			role: 'Fellow',
 			image: 'https://i.ibb.co/Q7YNyrKD/photo-Hari-Charan-P.jpg',
@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/B52Vd8x8/ph-PURUSHOTHAMAN-K.jpg',
 			github: 'https://github.com/purushothaman2307',
 			linkedin: 'https://www.linkedin.com/in/purushothaman-k-82129a325?utm_source=share_via&utm_content=profile&utm_medium=member_android',
-			bio: 'My hobby is sports and Iam studying in B.Tech CSE Applied AI in St Joseph University',
+			bio: 'B.Tech CSE Fresher | Future Software Developer | Passionate about Coding, AI & Web Technologies.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -610,7 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			id: 'folks-tavanidhiragavi-b-b',
 			name: 'Tavanidhiragavi B B',
 			role: 'Fellow',
-			image: 'https://via.placeholder.com/200?text=Photo',
+			image: 'https://i.ibb.co/2YMJq3hS/RAGAVI-Tavanidhiragavi-B-B.jpg',
 			github: 'https://github.com/tavanidhiragavibbs138-rgb',
 			linkedin: 'https://www.linkedin.com/in/tavanidhiragavi-b-b-0068b03a2?utm_source=share_via&utm_content=profile&utm_medium=member_android',
 			bio: 'I am focused on learning, building, and growing as a software developer',
@@ -637,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/272Z8T7q/Screenshot-2026-02-17-130437-Vignesh-M.png',
 			github: 'https://github.com/vigneshms138-creator',
 			linkedin: 'https://www.linkedin.com/in/vignesh-m-2b1690383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-			bio: 'I’m really good at turning ordinary moments into fun adventures.',
+			bio: 'I am a first-year Computer Science student at Kalvium, passionate about learning and growing in the field of technology. I enjoy coding, problem-solving, and exploring new technologies. My goal is to build a successful career as a software developer and contribute to innovative projects.',
 			dream: '',
 			skills: [],
 			projects: []
