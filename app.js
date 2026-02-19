@@ -179,14 +179,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	const squadMembers = [
 		// Main Mentor
 		{
-			id: 'main-mentor',
+			id: 'Program-Manager-Karunakaran',
 			name: 'Karunakaran H',
 			role: 'Program Manager',
 			image: 'https://i.ibb.co/fdx5tJG2/Karunakaran-H-Karunakaran.jpg',
 			github:'https://github.com/',
 			linkedin: 'https://www.linkedin.com/in/h-karunakaran-3b1285376',
 			bio: 'Karunakaran is a dedicated academic professional passionate about student development, technology-driven learning, and building strong campus communities. He focuses on mentoring students in problem solving, discipline, and career readiness. With a commitment to continuous improvement, he works closely with squads to create an environment that encourages creativity, accountability, and practical learning.',
-			
+			dream: '',
+			skills: [],
+			projects: []
 		},
 		
 		// Mentor 1
@@ -212,6 +214,20 @@ document.addEventListener('DOMContentLoaded', () => {
 			github: 'https://github.com/Mentor-Ram',
 			linkedin: 'https://www.linkedin.com/in/hanuram-t',
 			bio: 'Academic mentor cum business analyst, balancing logic, data, and good vibes.',
+			dream: '',
+			skills: [],
+			projects: []
+		},
+
+		// Mentor 3
+		{
+			id: 'mentor-santushta',
+			name: 'Santushta Iyer A',
+			role: 'Mentor',
+			image: 'https://i.ibb.co/Kpjj5hNb/shantusta.jpg',
+			github: 'https://github.com/santushta',
+			linkedin: 'https://www.linkedin.com/in/santushta-iyer-a-99862a25b/',
+			bio: 'Dedicated mentor passionate about supporting student growth and fostering a collaborative learning environment.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -361,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 		{
 			id: 'folks-gkg-arun-ragav',
-			name: 'G.K.G. Arun Ragav',
+			name: 'Arun Ragav G.K.G.',
 			role: 'Folk',
 			image: 'https://i.ibb.co/YnRwkdp/Gemini-Generated-Image-dzecm0dzecm0dzec-Arun-ragav-G-K-G.png',
 			github: 'https://github.com/arun-ragav',
@@ -426,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/YBkYNQNb/my-pic-Karthikeyan-A-E.jpg',
 			github: 'https://github.com/karthikeyan24-kk',
 			linkedin: 'https://www.linkedin.com/in/karthikeyan-a-e-8b3847381/',
-			bio: 'I am learning new things in Kalvium.',
+			bio: 'Hello, I’m Karthikeyan. I am a first-year college student with a strong passion for learning and developing new skills. I consider myself a committed and responsible individual who works well in teams and enjoys taking on new challenges. I am continuously striving to grow both personally and professionally, and I look forward to gaining more experience and contributing effectively wherever I can.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -583,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/sdp5QWCt/IMG-20251229-210000-Sasi-Mahesh.png',
 			github: '',
 			linkedin: 'https://www.linkedin.com/in/sasi-mahesh-2aa3b4384?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-			bio: 'My self Sasi Mahesh,I am student of squad 138.',
+			bio: '"Hi, I’m Sasi Mahesh a curious and driven first-year college student who believes growth begins where comfort ends. I’m passionate about learning new concepts, especially in technology, and constantly look for ways to sharpen my skills and think differently. I enjoy collaborating with people, brainstorming ideas, and solving problems that push me to think deeper.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -616,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			id: 'folks-tavanidhiragavi-b-b',
 			name: 'Tavanidhiragavi B B',
 			role: 'Folk',
-			image: 'https://i.ibb.co/2sZt3n9/IMG-20260217-145330-Tavanidhiragavi-B-B.jpg',
+			image: 'https://i.ibb.co/2YMJq3hS/RAGAVI-Tavanidhiragavi-B-B.jpg',
 			github: 'https://github.com/tavanidhiragavibbs138-rgb',
 			linkedin: 'https://www.linkedin.com/in/tavanidhiragavi-b-b-0068b03a2?utm_source=share_via&utm_content=profile&utm_medium=member_android',
 			bio: 'I am focused on learning, building, and growing as a software developer',
@@ -643,13 +659,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/272Z8T7q/Screenshot-2026-02-17-130437-Vignesh-M.png',
 			github: 'https://github.com/vigneshms138-creator',
 			linkedin: 'https://www.linkedin.com/in/vignesh-m-2b1690383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-			bio: 'I’m really good at turning ordinary moments into fun adventures.',
+			bio: 'I am a first-year Computer Science student at Kalvium, passionate about learning and growing in the field of technology. I enjoy coding, problem-solving, and exploring new technologies. My goal is to build a successful career as a software developer and contribute to innovative projects.',
 			dream: '',
 			skills: [],
 			projects: []
 		},
 		
-	]
+	];
 	// -----------------------------
 	// 2. INDEX PAGE RENDERING
 // -----------------------------
@@ -662,17 +678,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		return squadMembers.find(m => m.id === id);
 	}
 
-	// Helper: Render a mentor or fellow card
-	function renderCard(member, cardType = 'fellow') {
+	const fallbackAvatar = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23181818"/><circle cx="100" cy="78" r="34" fill="%23730c1e"/><rect x="48" y="122" width="104" height="52" rx="26" fill="%23730c1e"/></svg>';
+
+	// Helper: Render a mentor or folk card
+	function renderCard(member, cardType = 'folk') {
 		const card = document.createElement('div');
-		card.className = cardType === 'mentor' ? 'mentor-card fade-in-element' : 'fellow-card fade-in-element';
-		if (cardType === 'mentor' && member.role === 'Main Mentor') card.classList.add('mentor-main');
-		if (cardType === 'mentor' && member.role !== 'Main Mentor') card.classList.add('mentor-secondary');
-		if (cardType === 'fellow') card.tabIndex = 0;
+		card.className = cardType === 'mentor' ? 'mentor-card fade-in-element' : 'folk-card fade-in-element';
+		if (cardType === 'mentor' && (member.role === 'Main Mentor' || member.role === 'Program Manager')) card.classList.add('mentor-main');
+		if (cardType === 'mentor' && member.role === 'Mentor') card.classList.add('mentor-secondary');
+		if (cardType === 'folk') card.tabIndex = 0;
 		// Image
 		const img = document.createElement('div');
-		img.className = cardType === 'mentor' ? 'mentor-photo' : 'fellow-photo';
-		if (cardType === 'mentor' && member.role === 'Main Mentor') img.classList.add('mentor-photo-main');
+		img.className = cardType === 'mentor' ? 'mentor-photo' : 'folk-photo';
+		if (cardType === 'mentor' && (member.role === 'Main Mentor' || member.role === 'Program Manager')) img.classList.add('mentor-photo-main');
         
         const imageElement = document.createElement('img');
         imageElement.src = member.image;
@@ -681,12 +699,17 @@ document.addEventListener('DOMContentLoaded', () => {
         imageElement.style.height = '100%';
         imageElement.style.objectFit = 'cover';
         imageElement.style.borderRadius = '50%';
+		imageElement.loading = 'lazy';
+		imageElement.onerror = () => {
+			imageElement.onerror = null;
+			imageElement.src = fallbackAvatar;
+		};
         img.appendChild(imageElement);
 
 		img.setAttribute('aria-label', member.name);
 		// Name
 		const name = document.createElement('div');
-		name.className = cardType === 'mentor' ? 'mentor-name' : 'fellow-name';
+		name.className = cardType === 'mentor' ? 'mentor-name' : 'folk-name';
 		name.textContent = member.name;
 		card.appendChild(img);
 		card.appendChild(name);
@@ -699,10 +722,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		// Click to profile
 		card.addEventListener('click', () => {
+			sessionStorage.setItem('fromStudent', 'true');
 			window.location.href = `student.html?id=${member.id}`;
 		});
 		card.addEventListener('keypress', e => {
-			if (e.key === 'Enter') window.location.href = `student.html?id=${member.id}`;
+			if (e.key === 'Enter' || e.key === ' ') {
+				sessionStorage.setItem('fromStudent', 'true');
+				window.location.href = `student.html?id=${member.id}`;
+			}
 		});
 
 		return card;
@@ -711,31 +738,55 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (isIndex) {
 		// Render mentors
 		const mentorsGrid = document.querySelector('.mentors-grid');
+		const folksGrid = document.getElementById('folksGrid');
+		const allFolks = squadMembers.filter(m => m.role === 'Folk');
+
+		function renderFolksRows(folks) {
+			if (!folksGrid) return;
+			folksGrid.innerHTML = '';
+
+			if (!folks.length) {
+				const emptyState = document.createElement('div');
+				emptyState.className = 'folks-row folks-empty-row';
+
+				const message = document.createElement('div');
+				message.className = 'folks-empty-state';
+				message.textContent = 'No Folks Found';
+				emptyState.appendChild(message);
+				folksGrid.appendChild(emptyState);
+				return;
+			}
+
+			for (let index = 0; index < folks.length; index += 4) {
+				const row = document.createElement('div');
+				row.className = 'folks-row';
+				folks.slice(index, index + 4).forEach(folk => {
+					row.appendChild(renderCard(folk, 'folk'));
+				});
+				folksGrid.appendChild(row);
+			}
+		}
+
 		if (mentorsGrid) {
 			// Main mentor
 			const mainMentor = squadMembers.find(m => m.role === 'Program Manager');
 			const mentors = squadMembers.filter(m => m.role === 'Mentor');
 			mentorsGrid.innerHTML = '';
-			mentorsGrid.appendChild(renderCard(mainMentor, 'mentor'));
+			if (mainMentor) mentorsGrid.appendChild(renderCard(mainMentor, 'mentor'));
 			mentors.forEach(mentor => mentorsGrid.appendChild(renderCard(mentor, 'mentor')));
 		}
-		// Render fellows
-		const fellowsGrid = document.getElementById('fellowsGrid');
-		if (fellowsGrid) {
-			fellowsGrid.innerHTML = '';
-			squadMembers.filter(m => m.role === 'Fellow').forEach(fellow => {
-				fellowsGrid.appendChild(renderCard(fellow, 'fellow'));
-			});
-		}
+
+		// Render folks
+		renderFolksRows(allFolks);
+
 		// Search filter
 		const searchInput = document.getElementById('searchInput');
-		if (searchInput && fellowsGrid) {
+		if (searchInput && folksGrid) {
 			searchInput.addEventListener('input', e => {
-				const val = e.target.value.toLowerCase();
-				fellowsGrid.innerHTML = '';
-				squadMembers.filter(m => m.role === 'Fellow' && m.name.toLowerCase().includes(val)).forEach(fellow => {
-					fellowsGrid.appendChild(renderCard(fellow, 'fellow'));
-				});
+				const normalize = (value) => (value || '').toLowerCase().trim().replace(/\s+/g, ' ');
+				const val = normalize(e.target.value);
+				const filteredFolks = allFolks.filter(folk => normalize(folk.name).includes(val));
+				renderFolksRows(filteredFolks);
 			});
 		}
 	}
@@ -749,13 +800,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (img) {
 			img.src = member.image;
 			img.alt = member.name;
+			img.onerror = () => {
+				img.onerror = null;
+				img.src = fallbackAvatar;
+			};
 		}
 		const name = document.getElementById('profileName');
 		if (name) name.textContent = member.name;
 		const role = document.getElementById('profileRole');
 		if (role) role.textContent = member.role;
 		const github = document.getElementById('profileGithub');
-		if (github) github.href = member.github;
+		if (github) {
+			if (member.role === 'Program Manager') {
+				github.style.display = 'none';
+			} else {
+				github.href = member.github;
+			}
+		}
 		const linkedin = document.getElementById('profileLinkedin');
 		if (linkedin) linkedin.href = member.linkedin;
 		const bio = document.getElementById('profileBio');

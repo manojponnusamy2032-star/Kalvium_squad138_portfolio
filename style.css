@@ -302,6 +302,28 @@
 	margin-bottom: 0.3rem;
 }
 
+.folks-empty-state {
+    color: #fff;
+    font-size: 1.12rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(227, 74, 92, 0.55);
+    background: linear-gradient(135deg, rgba(115, 12, 30, 0.42) 0%, rgba(72, 4, 21, 0.3) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(115, 12, 30, 0.28), 0 0 14px rgba(227, 74, 92, 0.2);
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin: 0 auto;
+}
+
+.folks-empty-row {
+    justify-items: center;
+}
+
 /* =============================
 	 Squad 138 – Elite Developer Fellowship
 	 Premium Production CSS
@@ -783,7 +805,7 @@ header.header.sticky-header {
 nav.navbar.container {
     max-width: 100% !important;
     padding: 0 40px;
-    position: relative;
+    position: fixed;
     z-index: 100;
 }
 
@@ -793,6 +815,10 @@ nav.navbar.container {
     gap: 2.5rem;
     align-items: center;
     justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -976,35 +1002,35 @@ section {
 	position: relative;
 }
 .back-btn {
-	background: transparent;
-	border: 2px solid var(--primary-red);
-	color: var(--primary-red);
-	padding: 0.8rem 1.6rem;
-	font-size: 1.2rem;
-	font-weight: 700;
+    background: rgba(115, 12, 30, 0.08);
+    border: 1.5px solid rgba(115, 12, 30, 0.7);
+    color: rgba(115, 12, 30, 0.82);
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
 	border-radius: 8px;
 	cursor: pointer;
 	transition: all var(--transition);
-	margin-bottom: 2rem;
-	margin-left: -134px;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    text-transform: none;
+    letter-spacing: 0.02em;
 	display: inline-block;
 }
 .back-btn:hover {
-	background: var(--primary-red);
-	color: #fff;
-	box-shadow: 0 4px 16px 0 var(--soft-red-glow);
-	transform: translateX(-4px);
+    background: rgba(115, 12, 30, 0.18);
+    color: var(--primary-red);
+    box-shadow: 0 2px 10px 0 var(--soft-red-glow);
+    transform: none;
 }
 
 .profile-image {
-	width: 180px;
-	height: 180px;
+    width: 190px;
+    height: 190px;
 	object-fit: cover;
 	border-radius: 50%;
 	border: 5px solid var(--primary-red);
-	box-shadow: 0 0 0 8px var(--soft-red-glow);
+    box-shadow: 0 0 0 8px var(--soft-red-glow), 0 14px 28px rgba(115, 12, 30, 0.32);
 	background: #181818;
 }
 .profile-name {
@@ -1179,6 +1205,7 @@ section {
 	font-weight: 800;
 	letter-spacing: -1px;
 	margin-bottom: 1.2rem;
+    word-break: break-word;
 }
 
 .hero-subtitle {
@@ -1187,13 +1214,28 @@ section {
     margin-bottom: 2.5rem;
 }
 
+.folks-section {
+    padding-top: 20px;
+}
+
 /* 7. CARDS & GRIDS */
 .mentors-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     justify-items: center;
     margin-top: 3rem;
+}
+
+.mentor-card.mentor-main {
+    grid-column: 1 / -1;
+    width: 380px;
+    min-height: 450px;
+}
+
+.mentor-card.mentor-secondary {
+    width: 300px;
+    min-height: 380px;
 }
 
 .folks-row {
@@ -1218,7 +1260,17 @@ section {
 }
 
 .mentor-card { width: 300px; min-height: 380px; }
+.mentor-card.mentor-main { width: 380px; min-height: 450px; }
+.mentor-card.mentor-secondary { width: 300px; min-height: 380px; }
 .folk-card { width: 100%; min-height: 260px; }
+
+.folk-name,
+.mentor-name,
+.profile-name,
+.profile-bio {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
 
 .mentor-card:hover, .folk-card:hover {
     transform: translateY(-8px) scale(1.04);
@@ -1284,6 +1336,18 @@ section {
     .footer-glow-text { font-size: 5rem; }
 }
 
+@media (max-width: 1100px) {
+    .navbar,
+    nav.navbar.container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+    }
+}
+
 /* Mobile (Surgical Stability Fix) */
 /* ... [Keep all your global styles and variables the same] ... */
 
@@ -1291,6 +1355,8 @@ section {
 
 @media (max-width: 768px) {
     section { padding: 40px 15px !important; }
+
+    .folks-section { padding-top: 12px !important; }
     
     .container { padding: 0 15px; }
 
@@ -1307,11 +1373,25 @@ section {
         gap: 0.8rem; 
         justify-content: center;
         width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .nav-link {
         font-size: 0.8rem; /* Smaller text for phone screens */
         padding: 5px 10px;
+    }
+
+    .brand-logo {
+        height: 34px;
+    }
+
+    .main-text {
+        font-size: 18px;
+    }
+
+    .sub-text {
+        font-size: 12px;
     }
 
     .hero-title { font-size: 2.2rem !important; }
@@ -1336,5 +1416,58 @@ section {
         font-size: 2.5rem !important;
         -webkit-text-stroke: 1px #e34a5c;
         text-shadow: 0 0 12px #e34a5c;
+        text-align: center;
+        line-height: 1.15;
+        padding: 0 8px;
+    }
+
+    .back-btn {
+        margin-left: 0;
+        margin-bottom: 0.75rem;
+        font-size: 0.88rem;
+        padding: 0.38rem 0.75rem;
+        border-radius: 7px;
+    }
+
+    .profile-hero-section {
+        padding-top: 118px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.02rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .footer-glow-text {
+        font-size: 2rem !important;
+        letter-spacing: 0.04em;
+    }
+
+    .back-btn {
+        font-size: 0.84rem;
+        padding: 0.34rem 0.65rem;
+        margin-bottom: 0.6rem;
+        border-radius: 6px;
+    }
+
+    .profile-hero-section {
+        padding-top: 124px !important;
     }
 }
