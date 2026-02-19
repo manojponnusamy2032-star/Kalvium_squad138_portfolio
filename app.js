@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		{
 			id: 'main-mentor',
 			name: 'Karunakaran.H',
-			role: 'Main Mentor',
+			role: 'Program Manager',
 			image: 'https://i.ibb.co/fdx5tJG2/Karunakaran-H-Karunakaran.jpg',
 			github:'https://github.com/',
 			linkedin: 'https://www.linkedin.com/in/h-karunakaran-3b1285376',
@@ -707,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const mentorsGrid = document.querySelector('.mentors-grid');
 		if (mentorsGrid) {
 			// Main mentor
-			const mainMentor = squadMembers.find(m => m.role === 'Main Mentor');
+			const mainMentor = squadMembers.find(m => m.role === 'Program Manager');
 			const mentors = squadMembers.filter(m => m.role === 'Mentor');
 			mentorsGrid.innerHTML = '';
 			mentorsGrid.appendChild(renderCard(mainMentor, 'mentor'));
