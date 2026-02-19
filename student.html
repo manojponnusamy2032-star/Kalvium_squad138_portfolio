@@ -13,7 +13,7 @@
 	<!-- HEADER / NAVBAR -->
 	<header class="header sticky-header">
 		<nav class="navbar container">
-			<div class="nav-brand brand">
+			<div class="nav-brand brand" onclick="sessionStorage.setItem('fromStudent', 'true'); window.location.href='index.html#hero'" style="cursor: pointer;">
 				<img src="https://i.ibb.co/0R51D4YG/kalvium-logo-removebg-preview.png" alt="Kalvium Logo" class="brand-logo">
 				<div class="brand-text">
 					<span class="main-text">Kalvium</span>
@@ -21,9 +21,9 @@
 				</div>
 			</div>
 			<ul class="nav-links">
-				<li><a href="index.html#hero" class="nav-link">HOME</a></li>
-				<li><a href="index.html#mentors" class="nav-link">MENTORS</a></li>
-				<li><a href="index.html#folks" class="nav-link">FOLKS</a></li>
+				<li><a href="index.html#hero" class="nav-link" onclick="sessionStorage.setItem('fromStudent', 'true')">HOME</a></li>
+				<li><a href="index.html#mentors" class="nav-link" onclick="sessionStorage.setItem('fromStudent', 'true')">MENTORS</a></li>
+				<li><a href="index.html#folks" class="nav-link" onclick="sessionStorage.setItem('fromStudent', 'true')">FOLKS</a></li>
 			</ul>
 			<button class="nav-hamburger" aria-label="Open navigation menu">
 				<span class="hamburger-bar"></span>

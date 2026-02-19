@@ -180,36 +180,45 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Main Mentor
 		{
 			id: 'main-mentor',
-			name: 'Karunakaran.H',
+			name: 'Karunakaran H',
 			role: 'Main Mentor',
 			image: 'https://i.ibb.co/fdx5tJG2/Karunakaran-H-Karunakaran.jpg',
 			github:'https://github.com/',
 			linkedin: 'https://www.linkedin.com/in/h-karunakaran-3b1285376',
 			bio: 'Karunakaran is a dedicated academic professional passionate about student development, technology-driven learning, and building strong campus communities. He focuses on mentoring students in problem solving, discipline, and career readiness. With a commitment to continuous improvement, he works closely with squads to create an environment that encourages creativity, accountability, and practical learning.',
-			
+			dream: '',
+			skills: [],
+			projects: []
 		},
+		
 		// Mentor 1
 		{
 			id: 'mentor-aravind',
-			name: 'Aravind.R',
+			name: 'Aravind R',
 			role: 'Mentor',
 			image: 'https://i.ibb.co/JFjMddRh/Aravind-R-2.jpg',
 			github: 'https://github.com/Aravindrathenam',
 			linkedin: 'https://www.linkedin.com/in/aravind-r-812634245/',
 			bio: 'Currently a professional Wait, why is it doing that? investigator at Kalvium. As an Academic Mentor, I spend my days helping students realize that 90% of coding is just staring at a screen until the screen blinks first. I’m part-time debugger, part-time cheerleader, and full-time convinced that the semicolon is the most powerful character in the English language. I don’t just teach people how to code; I teach them how to not throw their laptops out the window.',
-
+            dream: '',
+			skills: [],
+			projects: []
 		},
+		
 		// Mentor 2
 		{
 			id: 'mentor-hanuram',
-			name: 'Hanuram.T',
+			name: 'Hanuram T',
 			role: 'Mentor',
 			image: 'https://i.ibb.co/ynQ90dvT/IMG-3197-Hanuram-T.jpg',
 			github: 'https://github.com/Mentor-Ram',
 			linkedin: 'https://www.linkedin.com/in/hanuram-t',
 			bio: 'Academic mentor cum business analyst, balancing logic, data, and good vibes.',
-			
+			dream: '',
+			skills: [],
+			projects: []
 		},
+		
 		// Folks (index.html)
 		{
 			id: 'folks-aravind-selva-jas-j-s',
@@ -277,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/dwq9RVLf/250310106011-Chandru-S-Chandru-S.jpg',
 			github: 'https://github.com/chandru24126',
 			linkedin: 'https://www.linkedin.com/in/chandru-sk-999077384',
-			bio: 'Iam chandru ,Learner at kalvium.',
+			bio: 'Hi, I’m Chandru S. I’m someone who believes that every day is a new opportunity to learn and improve. As a first-year college student, I’m exploring new ideas, building my skills, and pushing myself beyond my comfort zone. I enjoy working with others, sharing ideas, and turning challenges into learning experiences. My goal is simple — to grow stronger and better every day',
 			skills: [],
 			projects: []
 		},
@@ -288,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/RT8WXvHL/david-id-image-DAVID-G.jpg',
 			github: 'https://github.com/davidgs138-cyber',
 			linkedin: 'https://linkedin.com/in/david-g-6bb3323b1',
-			bio: 'I am website developer',
+			bio: 'Hi, I’m David. I’m someone who believes that every day is a new opportunity to learn and improve. As a first-year college student, I’m exploring new ideas, building my skills, and pushing myself beyond my comfort zone. I enjoy working with others, sharing ideas, and turning challenges into learning experiences. My goal is simple — to grow stronger and better every day',
 			dream: '',
 			skills: [],
 			projects: []
@@ -300,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/7N2mZktZ/Whats-App-Image-2026-02-17-at-14-00-53-Deboraah-Issac-I.jpg',
 			github: 'https://github.com/deboraahissacats138-cmyx',
 			linkedin: 'https://www.linkedin.com/in/deboraah-issac-ab0813388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-			bio: 'I am studying in B-Tech CSE',
+			bio: 'Hi, I’m Deboraahissac, a first-year college student who’s curious, motivated, and always ready to learn. I enjoy working with others, taking on challenges, and continuously improving myself.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -336,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/JFnPHszs/IMG-20260125-204551-269-1-Dinesh-P.webp',
 			github: 'https://github.com/dineshps138-ds',
 			linkedin: 'https://www.linkedin.com/in/dinesh-prakasam-a8279a381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-			bio: 'I am year student in St joseph university in palanchur',
+			bio: 'Student at St. Joseph University, Palanchur, dedicated to academic growth and professional development.Focused on building a strong foundation in my field within the university vibrant learning environment.Aspiring professional committed to excellence and contributing to the campus community.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -417,10 +426,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			id: 'folks-karthikeyan',
 			name: 'Karthikeyan',
 			role: 'Fellow',
-			image: 'https://i.ibb.co/YBkYNQNb/my-pic-Karthikeyan-A-E.jpg',
+			image: 'https://i.ibb.co/0ynn7MJP/my-pic-Karthikeyan-A-E.jpg',
 			github: 'https://github.com/karthikeyan24-kk',
 			linkedin: 'https://www.linkedin.com/in/karthikeyan-a-e-8b3847381/',
-			bio: 'I am learning new things in Kalvium.',
+			bio: 'Hello, I’m Karthikeyan. I am a first-year college student with a strong passion for learning and developing new skills. I consider myself a committed and responsible individual who works well in teams and enjoys taking on new challenges. I am continuously striving to grow both personally and professionally, and I look forward to gaining more experience and contributing effectively wherever I can.',
 			dream: '',
 			skills: [],
 			projects: []
@@ -589,7 +598,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			image: 'https://i.ibb.co/8gYP0vD5/Screenshot-20251031-085922-Whats-App-2-Shree-Vidhya-T.jpg',
 			github: 'https://github.com/shreevidhyats138-cmyk',
 			linkedin: 'https://www.linkedin.com/in/shree-v-5a60a0382?utm_source=share_via&utm_content=profile&utm_medium=member_android',
-			bio: 'Good Coder ',
+			bio: 'Hi, I’m Shree Vidhya. I’m currently a first-year college student who is passionate about learning and improving my skills. I’m a dedicated and responsible person who enjoys teamwork and taking on new challenges. I’m always eager to grow both personally and professionally.',
 			dream: '',
 			skills: [],
 			projects: []
