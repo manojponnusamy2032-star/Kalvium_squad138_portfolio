@@ -85,10 +85,77 @@
 		align-items: center;
 		width: 100%;
 		margin: 0 auto 2.5rem auto;
-		max-width: 500px;
+		max-width: 640px;
 		margin-left: auto;
 		margin-right: auto;
+		position: relative;
 	}
+	
+	.search-input {
+		width: 100%;
+		padding: 20px 36px;
+		background: linear-gradient(135deg, rgba(115, 12, 30, 0.25) 0%, rgba(227, 74, 92, 0.15) 100%);
+		backdrop-filter: blur(24px) saturate(200%);
+		-webkit-backdrop-filter: blur(24px) saturate(200%);
+		border: 2.5px solid rgba(227, 74, 92, 0.6);
+		border-radius: 60px;
+		color: #F5F5F5;
+		font-size: 1.12rem;
+		font-family: 'Inter', Arial, sans-serif;
+		font-weight: 500;
+		letter-spacing: 0.4px;
+		outline: none;
+		transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		box-shadow: 
+			0 4px 16px rgba(227, 74, 92, 0.3),
+			0 8px 40px rgba(227, 74, 92, 0.2),
+			0 0 30px rgba(227, 74, 92, 0.15),
+			inset 0 1px 1px rgba(255, 107, 125, 0.2),
+			inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+		position: relative;
+		z-index: 1;
+	}
+	
+	.search-input::placeholder {
+		color: rgba(227, 74, 92, 0.6);
+		font-weight: 400;
+		letter-spacing: 0.6px;
+		transition: color 0.3s ease;
+	}
+	
+	.search-input:hover {
+		border-color: rgba(227, 74, 92, 0.85);
+		background: linear-gradient(135deg, rgba(115, 12, 30, 0.35) 0%, rgba(227, 74, 92, 0.22) 100%);
+		box-shadow: 
+			0 6px 20px rgba(227, 74, 92, 0.4),
+			0 12px 48px rgba(227, 74, 92, 0.35),
+			0 0 40px rgba(227, 74, 92, 0.25),
+			inset 0 1px 2px rgba(255, 107, 125, 0.25),
+			inset 0 -1px 2px rgba(0, 0, 0, 0.35);
+		transform: translateY(-2px);
+	}
+	
+	.search-input:hover::placeholder {
+		color: rgba(227, 74, 92, 0.8);
+	}
+	
+	.search-input:focus {
+		border-color: #e34a5c;
+		background: linear-gradient(135deg, rgba(115, 12, 30, 0.4) 0%, rgba(227, 74, 92, 0.28) 100%);
+		box-shadow: 
+			0 8px 28px rgba(227, 74, 92, 0.5),
+			0 16px 64px rgba(227, 74, 92, 0.45),
+			0 0 0 5px rgba(227, 74, 92, 0.2),
+			0 0 60px rgba(227, 74, 92, 0.35),
+			inset 0 2px 4px rgba(255, 107, 125, 0.3),
+			inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+		transform: translateY(-3px) scale(1.015);
+	}
+	
+	.search-input:focus::placeholder {
+		color: rgba(227, 74, 92, 0.45);
+	}
+
 /* Center section headings for mentors and folks */
 .mentors-heading, .folks-heading, .mentors-title, .folks-title {
 	color: #fff;
@@ -1169,14 +1236,6 @@ section {
     box-shadow: 0 0 0 6px var(--soft-red-glow);
 }
 
-/* 8. SEARCH BAR */
-.search-bar-center {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 2.5rem auto;
-}
 .footer-icon:hover {
 	color: var(--primary-blue);
 	opacity: 1;
