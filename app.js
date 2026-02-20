@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			id: 'folks-aravind-selva-jas-j-s',
 			name: 'Aravind Selva Jas J S',
 			role: 'Folk',
-			image: 'https://i.ibb.co/4nK0j9MH/250310106005-Arvind-selva-Jas-J-S.jpg',
+			image: 'https://i.ibb.co/KcFz2jRK/250310106005-Arvind-selva-Jas-J-S-Arvind.webp',
 			github: 'https://github.com/arvindselvajas0222-coder',
 			linkedin: 'https://www.linkedin.com/in/arvind-selva-jas-j-s-68a79b381/',
 			bio: 'I am Aravind Selva Jas J S, a first-year Computer Science student at St. Joseph’s University, Chennai, powered by Kalvium. I am passionate about learning new technologies and building innovative solutions. With a curious mindset and a drive for continuous improvement, I am eager to explore the world of programming and contribute to impactful projects.',
