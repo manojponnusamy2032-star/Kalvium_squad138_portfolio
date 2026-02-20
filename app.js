@@ -13,15 +13,61 @@ document.addEventListener('DOMContentLoaded', () => {
 	const introBrand = document.querySelector('.intro-brand');
 	const navBrand = document.querySelector('.nav-brand');
 	const navbar = document.querySelector('.navbar');
+	const isMainPage = !!document.querySelector('.hero-section');
 	const navEntry = performance.getEntriesByType('navigation')[0];
 	const navType = navEntry ? navEntry.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : 'navigate');
 	const cameFromStudent = sessionStorage.getItem('fromStudent') === 'true';
+	const storedScroll = sessionStorage.getItem('mainScrollY');
+
+	if ('scrollRestoration' in history) {
+		history.scrollRestoration = 'manual';
+	}
+
+	function saveMainScrollPosition() {
+		if (!isMainPage) return;
+		const y = window.scrollY || window.pageYOffset || 0;
+		sessionStorage.setItem('mainScrollY', String(y));
+	}
+
+	function restoreMainScrollPosition() {
+		if (!isMainPage) return;
+		const saved = sessionStorage.getItem('mainScrollY');
+		if (saved === null) return;
+		const y = parseInt(saved, 10);
+		if (Number.isNaN(y)) return;
+		const root = document.documentElement;
+		const previousBehavior = root.style.scrollBehavior;
+		root.style.scrollBehavior = 'auto';
+		const applyRestore = () => {
+			window.scrollTo(0, y);
+			root.scrollTop = y;
+			if (document.body) document.body.scrollTop = y;
+		};
+		applyRestore();
+		requestAnimationFrame(() => {
+			applyRestore();
+			setTimeout(() => {
+				applyRestore();
+				root.style.scrollBehavior = previousBehavior;
+			}, 50);
+		});
+	}
 	
 	if (cameFromStudent) {
 		sessionStorage.removeItem('fromStudent');
 	}
+
+	if (isMainPage && storedScroll !== null) {
+		document.body.classList.add('intro-complete');
+		if (introOverlay) introOverlay.remove();
+	}
+
+	if (isMainPage) {
+		window.addEventListener('pageshow', restoreMainScrollPosition);
+		window.addEventListener('load', restoreMainScrollPosition, { once: true });
+	}
 	
-	const shouldPlayIntro = navType === 'reload' || !cameFromStudent;
+	const shouldPlayIntro = navType === 'reload' || (!cameFromStudent && storedScroll === null);
 	
 	if (introOverlay && introBrand && navBrand && navbar) {
 		if (!shouldPlayIntro) {
@@ -29,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.body.classList.add('intro-complete');
 			initScrollAnimations();
 			initProfileCardClicks();
+			restoreMainScrollPosition();
 			return;
 		}
 		
@@ -95,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				
 				// Initialize profile card click handlers
 				initProfileCardClicks();
+				restoreMainScrollPosition();
 			}, 600); // 0.6s fade out
 			
 		}, 3600); // Start fade at 3.6s
@@ -104,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.body.classList.add('intro-complete');
 		initScrollAnimations();
 		initProfileCardClicks();
+		restoreMainScrollPosition();
 	}
 	
 	// ============================================
@@ -117,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			card.addEventListener('click', () => {
 				const id = card.getAttribute('data-id');
 				if (id) {
+					saveMainScrollPosition();
 					sessionStorage.setItem('fromStudent', 'true');
 					window.location.href = `student.html?id=${id}`;
 				}
@@ -128,12 +178,26 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (e.key === 'Enter' || e.key === ' ') {
 					const id = card.getAttribute('data-id');
 					if (id) {
+						saveMainScrollPosition();
 						sessionStorage.setItem('fromStudent', 'true');
 						window.location.href = `student.html?id=${id}`;
 					}
 				}
 			});
 		});
+
+		const folksGrid = document.getElementById('folksGrid');
+		if (folksGrid) {
+			folksGrid.addEventListener('click', (event) => {
+				const card = event.target.closest('.folk-card');
+				if (!card) return;
+				const id = card.getAttribute('data-id');
+				if (!id) return;
+				saveMainScrollPosition();
+				sessionStorage.setItem('fromStudent', 'true');
+				window.location.href = `student.html?id=${id}`;
+			});
+		}
 	}
 	
 	// ============================================
@@ -241,6 +305,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			github: 'https://github.com/arvindselvajas0222-coder',
 			linkedin: 'https://www.linkedin.com/in/arvind-selva-jas-j-s-68a79b381/',
 			bio: 'I am Aravind Selva Jas J S, a first-year Computer Science student at St. Joseph’s University, Chennai, powered by Kalvium. I am passionate about learning new technologies and building innovative solutions. With a curious mindset and a drive for continuous improvement, I am eager to explore the world of programming and contribute to impactful projects.',
+			dream: '',
+			skills: [],
+			projects: []
+		},
+		{
+			id: 'folks-gkg-arun-ragav',
+			name: 'Arun Ragav G.K.G.',
+			role: 'Folk',
+			image: 'https://i.ibb.co/YnRwkdp/Gemini-Generated-Image-dzecm0dzecm0dzec-Arun-ragav-G-K-G.png',
+			github: 'https://github.com/arun-ragav',
+			linkedin: 'https://www.linkedin.com/in/arun-ragav-589061384',
+			bio: 'Hi, I’m Arun Ragav G.K.G, an aspiring developer passionate about JavaScript, Python, and web development. I enjoy solving problems, building interactive projects, and continuously improving my coding skills. ',
 			dream: '',
 			skills: [],
 			projects: []
@@ -376,18 +452,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			projects: []
 		},
 		{
-			id: 'folks-gkg-arun-ragav',
-			name: 'Arun Ragav G.K.G.',
-			role: 'Folk',
-			image: 'https://i.ibb.co/YnRwkdp/Gemini-Generated-Image-dzecm0dzecm0dzec-Arun-ragav-G-K-G.png',
-			github: 'https://github.com/arun-ragav',
-			linkedin: 'https://www.linkedin.com/in/arun-ragav-589061384',
-			bio: 'Hi, I’m Arun Ragav G.K.G, an aspiring developer passionate about JavaScript, Python, and web development. I enjoy solving problems, building interactive projects, and continuously improving my coding skills. ',
-			dream: '',
-			skills: [],
-			projects: []
-		},
-		{
 			id: 'folks-gundla-saigoutham',
 			name: 'Gundla Saigoutham',
 			role: 'Folk',
@@ -400,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			projects: []
 		},
 		{
-			id: 'folks-hariharan-s',
+			id: 'folks-haricharan-p',
 			name: 'Hari Charan P',
 			role: 'Folk',
 			image: 'https://i.ibb.co/Q7YNyrKD/photo-Hari-Charan-P.jpg',
@@ -722,11 +786,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		// Click to profile
 		card.addEventListener('click', () => {
+			saveMainScrollPosition();
 			sessionStorage.setItem('fromStudent', 'true');
 			window.location.href = `student.html?id=${member.id}`;
 		});
 		card.addEventListener('keypress', e => {
 			if (e.key === 'Enter' || e.key === ' ') {
+				saveMainScrollPosition();
 				sessionStorage.setItem('fromStudent', 'true');
 				window.location.href = `student.html?id=${member.id}`;
 			}
@@ -739,7 +805,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Render mentors
 		const mentorsGrid = document.querySelector('.mentors-grid');
 		const folksGrid = document.getElementById('folksGrid');
-		const allFolks = squadMembers.filter(m => m.role === 'Folk');
+		const allFolks = squadMembers
+			.filter(m => m.role === 'Folk')
+			.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 
 		function renderFolksRows(folks) {
 			if (!folksGrid) return;

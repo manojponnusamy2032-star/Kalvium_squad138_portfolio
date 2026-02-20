@@ -993,6 +993,7 @@ section {
 }
 .back-btn-wrapper {
 	text-align: left;
+    margin-top: 10px;
 }
 .profile-hero-content {
 	display: flex;
@@ -1431,6 +1432,38 @@ section {
 
     .profile-hero-section {
         padding-top: 118px !important;
+    }
+
+    .scroll-animate {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Consistent folks grid layout (override mixed row styles) */
+.folks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 2.5rem;
+}
+
+.folks-row {
+    display: contents;
+}
+
+.folk-card {
+    width: 100% !important;
+}
+
+@media (max-width: 1024px) {
+    .folks-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .folks-grid {
+        grid-template-columns: 1fr;
     }
 }
 
