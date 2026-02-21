@@ -302,6 +302,16 @@
 	margin-bottom: 0.3rem;
 }
 
+.profile-email {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    opacity: 0.9;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
 .folks-empty-state {
     color: #fff;
     font-size: 1.12rem;
@@ -1051,6 +1061,23 @@ section {
 	font-weight: 800;
 	margin: 0.7rem 0 0.2rem 0;
 }
+.profile-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    margin-top: -0.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.profile-email i {
+    font-size: 0.9rem;
+}
+
+.profile-email:hover {
+    color: #fff;
+    opacity: 1;
+}
 .profile-role {
 	color: var(--accent-purple);
 	font-size: 1.1rem;
@@ -1332,27 +1359,31 @@ section {
 /* 9. FOOTER */
 .modern-footer {
     width: 100%;
-    background: #18191a;
-    padding: 4.5rem 0;
+    background: linear-gradient(160deg, rgba(20, 15, 23, 0.96) 0%, rgba(72, 4, 21, 0.35) 100%);
+    padding: 4rem 0 2.2rem;
     margin-top: 8rem;
-    border-radius: 32px 32px 0 0;
-    box-shadow: 0 -8px 32px 0 rgba(20, 15, 23, 0.18);
+    border-radius: 26px 26px 0 0;
+    border-top: 1px solid rgba(227, 74, 92, 0.25);
+    box-shadow: 0 -10px 35px rgba(20, 15, 23, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    overflow: hidden; /* Vital to stop glow-related dance */
+    gap: 1.3rem;
+    overflow: hidden;
 }
 
 .footer-glow-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 7.6rem;
+    font-size: 3.2rem;
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 2px #e34a5c;
-    text-shadow: 0 0 24px #e34a5c;
+    -webkit-text-stroke: 1.4px #e34a5c;
+    text-shadow: 0 0 14px #e34a5c;
     text-transform: uppercase;
+    margin-top: 0.8rem;
+    text-align: center;
+    line-height: 1.12;
 }
 
 .footer-copyright {
@@ -1360,7 +1391,84 @@ section {
     font-size: 1rem;
     color: #ffffff;
     opacity: 0.85;
-    margin: 0.2rem 0 0;
+    margin: 0;
+}
+
+.footer-content {
+    width: min(1100px, 100% - 48px);
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.footer-about h3,
+.footer-quick-links h3 {
+    margin: 0 0 0.8rem 0;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.footer-about h3 span {
+    color: #ff9f72;
+}
+
+.footer-about p {
+    margin: 0;
+    color: var(--text-light);
+    opacity: 0.9;
+    font-size: 1.05rem;
+    max-width: 760px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid rgba(227, 74, 92, 0.25);
+    background: rgba(115, 12, 30, 0.18);
+    color: #fff;
+    transition: transform var(--transition), background var(--transition), border-color var(--transition);
+}
+
+.footer-social-link:hover {
+    transform: translateY(-2px);
+    background: rgba(227, 74, 92, 0.26);
+    border-color: #e34a5c;
+    box-shadow: 0 8px 20px rgba(115, 12, 30, 0.35);
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.8rem;
+}
+
+.footer-links-grid a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-light);
+    text-decoration: none;
+    opacity: 0.9;
+    font-size: 1.02rem;
+    transition: color var(--transition), opacity var(--transition);
+}
+
+.footer-links-grid a:hover {
+    color: #ff6b7d;
+    opacity: 1;
 }
 
 /* 10. RESPONSIVE BREAKPOINTS */
@@ -1369,7 +1477,17 @@ section {
 @media (max-width: 1024px) {
     .folks-row { grid-template-columns: repeat(2, 1fr); }
     .mentors-grid { grid-template-columns: 1fr; }
-    .footer-glow-text { font-size: 5rem; }
+	.footer-content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.footer-about h3,
+	.footer-quick-links h3 {
+		font-size: 1.8rem;
+	}
+
+	.footer-glow-text { font-size: 2.6rem; }
 }
 
 @media (max-width: 1100px) {
@@ -1445,13 +1563,31 @@ section {
 
     .modern-footer {
         margin-top: 4rem;
-        padding: 3rem 10px;
+        padding: 2.7rem 0 1.7rem;
+    }
+
+    .footer-content {
+        width: min(1100px, 100% - 26px);
+        gap: 1.7rem;
+    }
+
+    .footer-about h3,
+    .footer-quick-links h3 {
+        font-size: 1.6rem;
+    }
+
+    .footer-about p {
+        font-size: 1rem;
+    }
+
+    .footer-links-grid {
+        gap: 0.85rem 1.1rem;
     }
 
     .footer-glow-text {
-        font-size: 2.5rem !important;
+        font-size: 1.9rem !important;
         -webkit-text-stroke: 1px #e34a5c;
-        text-shadow: 0 0 12px #e34a5c;
+        text-shadow: 0 0 9px #e34a5c;
         text-align: center;
         line-height: 1.15;
         padding: 0 8px;
@@ -1524,8 +1660,17 @@ section {
     }
 
     .footer-glow-text {
-        font-size: 2rem !important;
+        font-size: 1.45rem !important;
         letter-spacing: 0.04em;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-social-link {
+        width: 36px;
+        height: 36px;
     }
 
     .back-btn {

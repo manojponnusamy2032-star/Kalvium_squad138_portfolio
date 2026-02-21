@@ -36,12 +36,16 @@
 	<main>
 		<!-- PROFILE HERO SECTION ONLY -->
 		<section class="profile-hero-section">
-			<div class="container back-btn-wrapper">
+			<div class="container back-btn-wrapper" style="margin-top: 2.5rem; margin-bottom: 1.5rem;">
 				<button class="back-btn" onclick="if (window.history.length > 1) { window.history.back(); } else { sessionStorage.setItem('fromStudent', 'true'); window.location.href='index.html'; }" aria-label="Back to main page">← Back</button>
 			</div>
 			<div class="container profile-hero-content">
 				<img id="profileImage" class="profile-image" src="" alt="Profile photo" />
 				<h1 id="profileName" class="profile-name"></h1>
+				<a id="profileEmail" class="profile-email" href="#" aria-label="Send email">
+					<i class="fas fa-envelope"></i>
+					<span id="profileEmailText"></span>
+				</a>
 				<div id="profileBio" class="profile-bio"></div>
 				<div class="profile-socials">
 					<a id="profileGithub" class="profile-social-btn" href="#" target="_blank" aria-label="GitHub profile">

@@ -290,6 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			id: 'mentor-santushta',
 			name: 'Santushta Iyer A',
 			role: 'Mentor',
+			email: 'santushta.iyer@kalvium.com',
 			image: 'https://i.ibb.co/Kpjj5hNb/shantusta.jpg',
 			github: 'https://github.com/santushta',
 			linkedin: 'https://www.linkedin.com/in/santushta-iyer-a-99862a25b/',
@@ -732,6 +733,53 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 		
 	];
+
+	const memberEmails = {
+		'folks-purushothaman-k': 'purushothaman.k.s.138@kalvium.community',
+		'folks-vignesh-m': 'vignesh.m.s.138@kalvium.community',
+		'folks-manoj-kumar-p': 'manoj.ponnusamy.s.138@kalvium.community',
+		'Program-Manager-Karunakaran': 'karunakaran.h@kalvium.com',
+		'folks-pradheesh-s': 'pradheesh.s.s.138@kalvium.community',
+		'folks-shree-vidhya-t': 'shree.vidhya.t.s.138@kalvium.community',
+		'folks-gkg-arun-ragav': 'arun.ragav.s.138@kalvium.community',
+		'folks-prasanna-kumar-a': 'prasanna.a.s.138@kalvium.community',
+		'folks-deboraah-issac-i': 'deboraahissac.i.s.138@kalvium.community',
+		'folks-sasi-mahesh': 'sasi.mahesh.s.138@kalvium.community',
+		'folks-chandru-a': 'chandru.a.s.138@kalvium.community',
+		'folks-sandeep-v': 'sandeep.v.s.138@kalvium.community',
+		'folks-aravind-selva-jas-j-s': 'arvind.j.s.138@kalvium.community',
+		'folks-ashwin-raj': 'ashwin.raj.s.138@kalvium.community',
+		'folks-dhinesh-babu': 'dhinesh.babu.s.138@kalvium.community',
+		'folks-sanjay-chelliah': 'sanjay.chelliah.s.138@kalvium.community',
+		'folks-nithyanandharaj-m': 'nithyanandharaj.m.s.138@kalvium.community',
+		'folks-tavanidhiragavi-b-b': 'tavanidhiragavi.bb.s.138@kalvium.community',
+		'folks-n-sherly': 'sherly.n.s.138@kalvium.community',
+		'folks-chandru-s': 'chandru.s.s.138@kalvium.community',
+		'folks-ashwath-palanisamy': 'ashwath.p.s.138@kalvium.community',
+		'folks-kishore-r': 'kishore.r.s.138@kalvium.community',
+		'folks-deepika-v': 'deepika.v.s.138@kalvium.community',
+		'folks-haricharan-p': 'hari.p.s.138@kalvium.community',
+		'folks-karthikeyan': 'karthikeyan.ae.s.138@kalvium.community',
+		'folks-mohammed-tharik-s': 'mohammed.tharik.s.138@kalvium.community',
+		'folks-gundla-saigoutham': 'gundla.gowtham.s.138@kalvium.community',
+		'folks-m-ram-charan': 'medaboina.charan.s.138@kalvium.community',
+		'folks-dinesh-p': 'dinesh.p.s.138@kalvium.community',
+		'mentor-aravind': 'aravind.r@kalvium.com',
+		'mentor-santushta': 'santushta.iyer@kalvium.com',
+		'folks-surjith-sri-k': 'surjith.k.s.138@kalvium.community',
+		'folks-navya-d': 'navya.d.s.138@kalvium.community',
+		'folks-david-g': 'david.g.s.138@kalvium.community',
+		'folks-harshini-j': 'harshini.j.s.138@kalvium.community',
+		'folks-udhaya-e': 'udhaya.e.s.138@kalvium.community',
+		'folks-jeevanand-j': 'jeevanand.j.s.138@kalvium.community',
+		'mentor-hanuram': 'hanuram.t@kalvium.com',
+		'folks-edupalli-sai-praneeth': 'edupalli.lokesh.s.138@kalvium.community',
+		'folks-chandana-s': 'chandana.e.s.139@kalvium.community'
+	};
+
+	squadMembers.forEach(member => {
+		member.email = memberEmails[member.id] || '';
+	});
 	// -----------------------------
 	// 2. INDEX PAGE RENDERING
 // -----------------------------
@@ -779,6 +827,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		name.textContent = member.name;
 		card.appendChild(img);
 		card.appendChild(name);
+
 		// Role (for mentors)
 		if (cardType === 'mentor') {
 			const role = document.createElement('div');
@@ -877,6 +926,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		const name = document.getElementById('profileName');
 		if (name) name.textContent = member.name;
+		const email = document.getElementById('profileEmail');
+		const emailText = document.getElementById('profileEmailText');
+		if (email) {
+			email.href = member.email ? `mailto:${member.email}` : '#';
+			email.style.display = 'inline-flex';
+			email.onclick = function(e) {
+				if (member.email) {
+					window.location.href = `mailto:${member.email}`;
+				}
+			};
+		}
+		if (emailText) emailText.textContent = member.email || '';
 		const role = document.getElementById('profileRole');
 		if (role) role.textContent = member.role;
 		const github = document.getElementById('profileGithub');
