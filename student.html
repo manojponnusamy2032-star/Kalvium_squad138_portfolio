@@ -58,5 +58,11 @@
 	<!-- Footer removed for minimal profile page -->
 
 	<script src="app.js"></script>
+	<script>
+		// Prevent right-click context menu
+		document.addEventListener('contextmenu', function(e) {
+			e.preventDefault();
+		});
+	</script>
 </body>
 </html>

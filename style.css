@@ -1024,6 +1024,18 @@ section {
     box-shadow: 0 2px 10px 0 var(--soft-red-glow);
     transform: none;
 }
+.back-btn:active {
+    background: rgba(115, 12, 30, 0.25);
+    color: var(--primary-red);
+    box-shadow: 0 0 20px rgba(227, 74, 92, 0.8), 0 0 40px rgba(227, 74, 92, 0.5);
+    transform: scale(0.98);
+}
+.back-btn.active {
+    background: rgba(115, 12, 30, 0.25);
+    color: var(--primary-red);
+    box-shadow: 0 0 20px rgba(227, 74, 92, 0.8), 0 0 40px rgba(227, 74, 92, 0.5);
+    transform: scale(0.98);
+}
 
 .profile-image {
     width: 190px;
@@ -1047,7 +1059,7 @@ section {
 }
 .profile-socials {
 	display: flex;
-	gap: 1.2rem;
+	gap: 1.8rem;
 	margin-top: 0.7rem;
 }
 .profile-social-btn {
@@ -1063,11 +1075,34 @@ section {
 	font-size: 1.3rem;
 	transition: background var(--transition), color var(--transition), box-shadow var(--transition);
 	box-shadow: 0 2px 8px var(--primary-blue)11;
+	position: relative;
+	overflow: visible;
+	cursor: pointer;
+	text-decoration: none;
 }
 .profile-social-btn:hover {
 	background: var(--primary-blue);
 	color: #fff;
 	box-shadow: 0 4px 16px var(--accent-purple)22;
+}
+.profile-social-btn::before {
+	content: '';
+	position: absolute;
+	inset: -6px;
+	border: 2px solid rgba(227, 74, 92, 0.3);
+	border-radius: 50%;
+	transition: all 200ms ease;
+	pointer-events: none;
+}
+.profile-social-btn:hover::before {
+	transform: scale(1.15);
+	border-color: rgba(227, 74, 92, 0.6);
+	box-shadow: 0 0 15px rgba(227, 74, 92, 0.5);
+}
+.profile-social-btn.active::before {
+	transform: scale(1.25);
+	border-color: rgba(227, 74, 92, 0.9);
+	box-shadow: 0 0 20px rgba(227, 74, 92, 0.8), inset 0 0 10px rgba(227, 74, 92, 0.3);
 }
 .cta-btn {
 	display: inline-block;

@@ -12,6 +12,23 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+	<script>
+		// Immediate global protection on page entry: block right-click, drag, copy/cut and common save/dev keys
+		(function globalBlockOnEntry(){
+			function block(e){ try{ e.preventDefault(); e.stopPropagation(); }catch(_){} }
+			document.addEventListener('contextmenu', block, true);
+			document.addEventListener('dragstart', block, true);
+			document.addEventListener('copy', block, true);
+			document.addEventListener('cut', block, true);
+			window.addEventListener('keydown', function(e){
+				const k = (e.key || '').toLowerCase();
+				if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && k === 'i') || (e.ctrlKey && k === 'u') || (e.ctrlKey && k === 's') || k === 'printscreen'){
+					block(e);
+				}
+			}, true);
+		})();
+	</script>
 </head>
 
 <body>
@@ -362,6 +379,12 @@
 	</footer>
 
 	<script src="app.js"></script>
+	<script>
+ 		// Prevent right-click context menu globally on the page
+ 		document.addEventListener("contextmenu", function(e){
+ 			e.preventDefault();
+ 		});
+	</script>
 </body>
 
 </html>

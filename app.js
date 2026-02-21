@@ -4,6 +4,9 @@
 // Premium Cinematic Intro Animation with Dynamic Position Calculation
 // =============================
 
+// Prevent right-click context menu globally
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
 document.addEventListener('DOMContentLoaded', () => {
 	// ============================================
 	// PREMIUM CINEMATIC INTRO ANIMATION CONTROLLER
@@ -960,7 +963,45 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// -----------------------------
-	// 5. CLEANUP & MODULARITY
+	// 5. TAP RIPPLE FOR SOCIAL ICONS
+	// -----------------------------
+	document.addEventListener('pointerdown', (event) => {
+		const button = event.target.closest('.card-social-btn, .profile-social-btn');
+		if (!button) return;
+
+		// Add active class for circle bubble effect
+		button.classList.add('active');
+
+		const rect = button.getBoundingClientRect();
+		const ripple = document.createElement('span');
+		ripple.className = 'tap-ripple';
+		ripple.style.left = `${event.clientX - rect.left}px`;
+		ripple.style.top = `${event.clientY - rect.top}px`;
+		button.appendChild(ripple);
+		setTimeout(() => ripple.remove(), 550);
+	});
+
+	// Remove active class on pointer up
+	document.addEventListener('pointerup', (event) => {
+		const button = event.target.closest('.card-social-btn, .profile-social-btn, .back-btn');
+		if (button) button.classList.remove('active');
+	});
+
+	document.addEventListener('pointerleave', (event) => {
+		const button = event.target.closest('.card-social-btn, .profile-social-btn, .back-btn');
+		if (button) button.classList.remove('active');
+	}, true);
+
+	// Back button glow on touch
+	document.addEventListener('pointerdown', (event) => {
+		if (event.target.closest('.back-btn')) {
+			const backBtn = event.target.closest('.back-btn');
+			backBtn.classList.add('active');
+		}
+	});
+
+	// -----------------------------
+	// 6. CLEANUP & MODULARITY
 	// -----------------------------
 	// (All logic is wrapped in DOMContentLoaded, helpers are modular, no global pollution)
 });
