@@ -14,10 +14,37 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<style>
+		.skip-link {
+			position: absolute;
+			left: -999px;
+			top: auto;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			z-index: 10000;
+			background: #e34a5c;
+			color: #fff;
+			padding: 8px 16px;
+			border-radius: 6px;
+			font-size: 1rem;
+			font-weight: 700;
+			transition: left 0.2s;
+		}
+		.skip-link:focus {
+			left: 16px;
+			top: 16px;
+			width: auto;
+			height: auto;
+			outline: 2px solid #fff;
+			box-shadow: 0 0 0 3px #e34a5c;
+		}
+		</style>
 
 	<script>
 		// Immediate global protection on page entry: block right-click, drag, copy/cut and common save/dev keys
-		(function globalBlockOnEntry(){
+<body>
+<a href="#hero" class="skip-link" tabindex="0">Skip to main content</a>
 			function block(e){ try{ e.preventDefault(); e.stopPropagation(); }catch(_){} }
 			document.addEventListener('contextmenu', block, true);
 			document.addEventListener('dragstart', block, true);
@@ -58,7 +85,23 @@
 				<li><a href="#hero" class="nav-link">HOME</a></li>
 				<li><a href="#mentors" class="nav-link">MENTORS</a></li>
 				<li><a href="#folks" class="nav-link">FOLKS</a></li>
+				<!-- Add aria-label for accessibility -->
+				<li><button class="nav-hamburger" aria-label="Open navigation menu" aria-controls="nav-links" aria-expanded="false"><span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span></button></li>
 			</ul>
+			<script>
+			// Hamburger menu toggle for mobile
+			document.addEventListener('DOMContentLoaded', function() {
+				const hamburger = document.querySelector('.nav-hamburger');
+				const navLinks = document.querySelector('.nav-links');
+				if (hamburger && navLinks) {
+					hamburger.addEventListener('click', function() {
+						navLinks.classList.toggle('open');
+						const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+						hamburger.setAttribute('aria-expanded', !expanded);
+					});
+				}
+			});
+			</script>
 			<button class="nav-hamburger" aria-label="Open navigation menu">
 				<!-- Hamburger icon placeholder -->
 				<span class="hamburger-bar"></span>
@@ -89,28 +132,28 @@
 				<div class="mentors-grid">
 					<div class="mentor-card mentor-main" data-id="Program-Manager-Karunakaran">
 						<div class="mentor-photo mentor-photo-main">
-							<img src="https://i.ibb.co/fdx5tJG2/Karunakaran-H-Karunakaran.jpg" alt="Mr Karunakaran" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+							<img src="https://i.ibb.co/fdx5tJG2/Karunakaran-H-Karunakaran.jpg" alt="Mr Karunakaran" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 						</div>
 						<div class="mentor-name"> Karunakaran H</div>
 						<div class="mentor-role">Program Manager</div>
 					</div>
 					<div class="mentor-card mentor-secondary" data-id="mentor-aravind">
 						<div class="mentor-photo">
-							<img src="https://i.ibb.co/JFjMddRh/Aravind-R-2.jpg" alt="Aravind R" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+							<img src="https://i.ibb.co/JFjMddRh/Aravind-R-2.jpg" alt="Aravind R" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 						</div>
 						<div class="mentor-name">Aravind R</div>
 						<div class="mentor-role">Mentor</div>
 					</div>
 					<div class="mentor-card mentor-secondary" data-id="mentor-hanuram">
 						<div class="mentor-photo">
-							<img src="https://i.ibb.co/ynQ90dvT/IMG-3197-Hanuram-T.jpg" alt="Hanuram T" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+							<img src="https://i.ibb.co/ynQ90dvT/IMG-3197-Hanuram-T.jpg" alt="Hanuram T" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 						</div>
 						<div class="mentor-name">Hanuram T</div>
 						<div class="mentor-role">Mentor</div>
 					</div>
 					<div class="mentor-card mentor-secondary" data-id="mentor-santushta">
 						<div class="mentor-photo">
-							<img src="https://i.ibb.co/Kpjj5hNb/shantusta.jpg" alt="shantusta" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+							<img src="https://i.ibb.co/Kpjj5hNb/shantusta.jpg" alt="shantusta" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 						</div>
 						<div class="mentor-name">Santushta Iyer A</div>
 						<div class="mentor-role">Mentor</div>
@@ -134,25 +177,25 @@
 					<div class="folks-row">
 						<div class="folk-card" data-id="folks-aravind-selva-jas-j-s">
 							<div class="folk-photo">
-								<img src="https://i.ibb.co/KcFz2jRK/250310106005-Arvind-selva-Jas-J-S-Arvind.webp" alt="Aravind Selva Jas J S" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+								<img src="https://i.ibb.co/KcFz2jRK/250310106005-Arvind-selva-Jas-J-S-Arvind.webp" alt="Aravind Selva Jas J S" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 							</div>
 							<div class="folk-name">Aravind Selva Jas J S</div>
 						</div>
 						<div class="folk-card" data-id="folks-gkg-arun-ragav">
 							<div class="folk-photo">
-								<img src="https://i.ibb.co/YnRwkdp/Gemini-Generated-Image-dzecm0dzecm0dzec-Arun-ragav-G-K-G.png" alt="G.K.G. Arun Ragav" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+								<img src="https://i.ibb.co/YnRwkdp/Gemini-Generated-Image-dzecm0dzecm0dzec-Arun-ragav-G-K-G.png" alt="G.K.G. Arun Ragav" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 							</div>
 							<div class="folk-name">Arun Ragav G.K.G. </div>
 						</div>
 						<div class="folk-card" data-id="folks-ashwin-raj">
 							<div class="folk-photo">
-								<img src="https://i.ibb.co/Q7xJVTgt/Generated-Image-October-31-2025-10-37-PM-1-Ashwin-Raj.png" alt="Ashwin Raj" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+								<img src="https://i.ibb.co/Q7xJVTgt/Generated-Image-October-31-2025-10-37-PM-1-Ashwin-Raj.png" alt="Ashwin Raj" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 							</div>
 							<div class="folk-name">Ashwin Raj</div>
 						</div>
 						<div class="folk-card" data-id="folks-ashwath-palanisamy">
 							<div class="folk-photo">
-								<img src="https://i.ibb.co/jmXn5nc/20260217-171252-Ashwath-Palanisamy.jpg" alt="Ashwath Palanisamy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+								<img src="https://i.ibb.co/jmXn5nc/20260217-171252-Ashwath-Palanisamy.jpg" alt="Ashwath Palanisamy" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
 							</div>
 							<div class="folk-name">Ashwath Palanisamy</div>
 						</div>
@@ -413,7 +456,7 @@
 		<div class="footer-copyright"> © 2026 Kalvium Squad 138</div>
 	</footer>
 
-	<script src="app.js"></script>
+	<script src="app.js" defer></script>
 	<script>
  		// Prevent right-click context menu globally on the page
  		document.addEventListener("contextmenu", function(e){
