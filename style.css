@@ -1684,3 +1684,65 @@ section {
         padding-top: 124px !important;
     }
 }
+/* Extra responsive tweaks for mobile and laptop */
+@media (max-width: 600px) {
+    html {
+        font-size: 15px;
+    }
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    .brand-logo {
+        height: 28px;
+    }
+    .main-text {
+        font-size: 16px;
+    }
+    .sub-text {
+        font-size: 10px;
+    }
+    .mentor-card, .folk-card {
+        max-width: 220px;
+    }
+    .footer-glow-text {
+        font-size: 1.1rem !important;
+    }
+    /* Performance: Reduce box-shadow and animation for mobile */
+    .mentor-card, .folk-card, .footer-glow-text, .modern-footer, .search-input, .cta-btn {
+        box-shadow: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    .scroll-animate, .animate-in, .fade-in-element, .fade-in {
+        transition: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    /* Remove background starfield for mobile performance */
+    body::before, body::after {
+        display: none !important;
+        background: none !important;
+        animation: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .hero-title {
+        font-size: 4rem !important;
+    }
+    .footer-glow-text {
+        font-size: 3.5rem !important;
+    }
+    .mentor-card, .folk-card {
+        max-width: 320px;
+    }
+}
